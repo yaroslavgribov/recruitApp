@@ -1,0 +1,5888 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Recruit API",
+    "version": "v1"
+  },
+  "paths": {
+    "/employers/employers": {
+      "post": {
+        "summary": "Creates an employer",
+        "tags": [
+          "Employers/Employers"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "employer",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "company_size": {
+                  "type": "string"
+                },
+                "company_type": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "year_founded": {
+                  "type": "integer"
+                },
+                "active": {
+                  "type": "boolean"
+                },
+                "address": {
+                  "type": "string"
+                },
+                "facebook_url": {
+                  "type": "string"
+                },
+                "twitter_url": {
+                  "type": "string"
+                },
+                "github_url": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "email",
+                "password"
+              ]
+            }
+          },
+          {
+            "name": "X-Auth-Token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "X-Auth-Token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "employer created",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "description": "Generated from employers/employers#create (200) with shasum ea7f7ec9ff6cd1960d7c686662fbb9f83c92af25",
+              "type": "object",
+              "required": [
+                "id",
+                "created_at",
+                "updated_at",
+                "name",
+                "email",
+                "company_size",
+                "company_type",
+                "description",
+                "year_founded",
+                "active",
+                "logo",
+                "address",
+                "latitude",
+                "longitude",
+                "facebook_url",
+                "twitter_url",
+                "github_url",
+                "api_token"
+              ],
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "company_size": {
+                  "type": "string"
+                },
+                "company_type": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string",
+                  "x-nullable": true,
+                  "nullable": true
+                },
+                "year_founded": {
+                  "type": "integer",
+                  "x-nullable": true,
+                  "nullable": true
+                },
+                "active": {
+                  "type": "boolean"
+                },
+                "logo": {
+                  "type": "object",
+                  "required": [
+                    "original",
+                    "medium",
+                    "small"
+                  ],
+                  "properties": {
+                    "original": {
+                      "type": "string"
+                    },
+                    "medium": {
+                      "type": "string"
+                    },
+                    "small": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "address": {
+                  "type": "string",
+                  "x-nullable": true,
+                  "nullable": true
+                },
+                "latitude": {
+                  "type": "number",
+                  "x-nullable": true,
+                  "nullable": true
+                },
+                "longitude": {
+                  "type": "number",
+                  "x-nullable": true,
+                  "nullable": true
+                },
+                "facebook_url": {
+                  "type": "string",
+                  "x-nullable": true,
+                  "nullable": true
+                },
+                "twitter_url": {
+                  "type": "string",
+                  "x-nullable": true,
+                  "nullable": true
+                },
+                "github_url": {
+                  "type": "string",
+                  "x-nullable": true,
+                  "nullable": true
+                },
+                "api_token": {
+                  "type": "string"
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "id": 2,
+                "name": "yolo",
+                "email": "foo@bar.com",
+                "company_size": "medium",
+                "company_type": "business",
+                "description": null,
+                "year_founded": null,
+                "active": true,
+                "logo": {
+                  "original": "http://localhost:3000/assets/missing.png",
+                  "medium": "http://localhost:3000/assets/missing.png",
+                  "small": "http://localhost:3000/assets/missing.png"
+                },
+                "address": null,
+                "latitude": null,
+                "longitude": null,
+                "facebook_url": null,
+                "twitter_url": null,
+                "github_url": null,
+                "updated_at": "2018-02-26T11:26:10.499Z",
+                "created_at": "2018-02-26T11:26:10.499Z",
+                "api_token": "c4aggP99DSZCkeUOJNpPCg"
+              }
+            }
+          },
+          "422": {
+            "description": "invalid request",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "description": "Generated from users#create (422) with shasum 41a840a264cfbaf17585e2a31abf7a312fa76ca1",
+              "type": "object",
+              "required": [
+                "errors",
+                "meta"
+              ],
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "title",
+                      "detail",
+                      "source"
+                    ],
+                    "properties": {
+                      "title": {
+                        "type": "string",
+                        "x-nullable": true,
+                        "nullable": true
+                      },
+                      "detail": {
+                        "type": "string"
+                      },
+                      "source": {
+                        "type": "string",
+                        "x-nullable": true,
+                        "nullable": true
+                      }
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "required": [
+                    "status",
+                    "message",
+                    "code"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "title": "",
+                    "detail": "Password can't be blank",
+                    "source": "password"
+                  },
+                  {
+                    "title": "",
+                    "detail": "Email can't be blank",
+                    "source": "email"
+                  },
+                  {
+                    "title": "",
+                    "detail": "Name can't be blank",
+                    "source": "name"
+                  }
+                ],
+                "meta": {
+                  "status": 422,
+                  "message": "Unprocessable Entity",
+                  "code": "processing_error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/employers/employers/{id}": {
+      "get": {
+        "summary": "Retrieves an employer",
+        "tags": [
+          "Employers/Employers"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "X-Auth-Token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "X-Auth-Token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "employer found",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "description": "Generated from employers/employers#show (200) with shasum 9a6ab07ddd4df3be141fceb7fe30a5fa35e9fc14",
+              "type": "object",
+              "required": [
+                "id",
+                "created_at",
+                "updated_at",
+                "name",
+                "email",
+                "company_size",
+                "company_type",
+                "description",
+                "year_founded",
+                "active",
+                "logo",
+                "address",
+                "latitude",
+                "longitude",
+                "facebook_url",
+                "twitter_url",
+                "github_url"
+              ],
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "company_size": {
+                  "type": "string"
+                },
+                "company_type": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "year_founded": {
+                  "type": "integer"
+                },
+                "active": {
+                  "type": "boolean"
+                },
+                "logo": {
+                  "type": "object",
+                  "required": [
+                    "original",
+                    "medium",
+                    "small"
+                  ],
+                  "properties": {
+                    "original": {
+                      "type": "string"
+                    },
+                    "medium": {
+                      "type": "string"
+                    },
+                    "small": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "address": {
+                  "type": "string"
+                },
+                "latitude": {
+                  "type": "number"
+                },
+                "longitude": {
+                  "type": "number"
+                },
+                "facebook_url": {
+                  "type": "string"
+                },
+                "twitter_url": {
+                  "type": "string"
+                },
+                "github_url": {
+                  "type": "string"
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "id": 1,
+                "name": "employer_3",
+                "email": "employer_3@example.com",
+                "company_size": "small",
+                "company_type": "startup",
+                "description": "MyText",
+                "year_founded": 1,
+                "active": true,
+                "logo": {
+                  "original": "http://localhost:3000/assets/missing.png",
+                  "medium": "http://localhost:3000/assets/missing.png",
+                  "small": "http://localhost:3000/assets/missing.png"
+                },
+                "address": "W22ET, London",
+                "latitude": 40.7143528,
+                "longitude": -74.0059731,
+                "facebook_url": "https://www.facebook.com/example",
+                "twitter_url": "https://www.twitter.com/example",
+                "github_url": "https://www.github.com/example",
+                "updated_at": "2018-02-26T11:26:10.975Z",
+                "created_at": "2018-02-26T11:26:10.975Z"
+              }
+            }
+          },
+          "404": {
+            "description": "employer not found",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "description": "Generated from users#create (422) with shasum 41a840a264cfbaf17585e2a31abf7a312fa76ca1",
+              "type": "object",
+              "required": [
+                "errors",
+                "meta"
+              ],
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "title",
+                      "detail",
+                      "source"
+                    ],
+                    "properties": {
+                      "title": {
+                        "type": "string",
+                        "x-nullable": true,
+                        "nullable": true
+                      },
+                      "detail": {
+                        "type": "string"
+                      },
+                      "source": {
+                        "type": "string",
+                        "x-nullable": true,
+                        "nullable": true
+                      }
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "required": [
+                    "status",
+                    "message",
+                    "code"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "title": "",
+                    "detail": "Couldn't find Employer with 'id'=43535345",
+                    "source": null
+                  }
+                ],
+                "meta": {
+                  "status": 404,
+                  "message": "Not Found",
+                  "code": "not_found"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "Updates an employer",
+        "tags": [
+          "Employers/Employers"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "employer",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "company_size": {
+                  "type": "string"
+                },
+                "company_type": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "year_founded": {
+                  "type": "integer"
+                },
+                "active": {
+                  "type": "boolean"
+                },
+                "address": {
+                  "type": "string"
+                },
+                "facebook_url": {
+                  "type": "string"
+                },
+                "twitter_url": {
+                  "type": "string"
+                },
+                "github_url": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                }
+              },
+              "required": [
+
+              ]
+            }
+          },
+          {
+            "name": "X-Auth-Token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "X-Auth-Token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "employer updated",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "description": "Generated from employers/employers#update (200) with shasum 70f5796506d52964b9b11600034faa33ecf49864",
+              "type": "object",
+              "required": [
+                "id",
+                "created_at",
+                "updated_at",
+                "name",
+                "email",
+                "company_size",
+                "company_type",
+                "description",
+                "year_founded",
+                "active",
+                "logo",
+                "address",
+                "latitude",
+                "longitude",
+                "facebook_url",
+                "twitter_url",
+                "github_url",
+                "api_token"
+              ],
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "company_size": {
+                  "type": "string"
+                },
+                "company_type": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "year_founded": {
+                  "type": "integer"
+                },
+                "active": {
+                  "type": "boolean"
+                },
+                "logo": {
+                  "type": "object",
+                  "required": [
+                    "original",
+                    "medium",
+                    "small"
+                  ],
+                  "properties": {
+                    "original": {
+                      "type": "string"
+                    },
+                    "medium": {
+                      "type": "string"
+                    },
+                    "small": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "address": {
+                  "type": "string"
+                },
+                "latitude": {
+                  "type": "number"
+                },
+                "longitude": {
+                  "type": "number"
+                },
+                "facebook_url": {
+                  "type": "string"
+                },
+                "twitter_url": {
+                  "type": "string"
+                },
+                "github_url": {
+                  "type": "string"
+                },
+                "api_token": {
+                  "type": "string"
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "id": 1,
+                "name": "foobar",
+                "email": "employer_5@example.com",
+                "company_size": "small",
+                "company_type": "startup",
+                "description": "MyText",
+                "year_founded": 1,
+                "active": true,
+                "logo": {
+                  "original": "http://localhost:3000/assets/missing.png",
+                  "medium": "http://localhost:3000/assets/missing.png",
+                  "small": "http://localhost:3000/assets/missing.png"
+                },
+                "address": "W22ET, London",
+                "latitude": 40.7143528,
+                "longitude": -74.0059731,
+                "facebook_url": "https://www.facebook.com/example",
+                "twitter_url": "https://www.twitter.com/example",
+                "github_url": "https://www.github.com/example",
+                "updated_at": "2018-02-26T11:26:11.023Z",
+                "created_at": "2018-02-26T11:26:11.016Z",
+                "api_token": "MzmTkoUW5i0CclKw7NaKHw"
+              }
+            }
+          },
+          "404": {
+            "description": "employer not found",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "description": "Generated from users#create (422) with shasum 41a840a264cfbaf17585e2a31abf7a312fa76ca1",
+              "type": "object",
+              "required": [
+                "errors",
+                "meta"
+              ],
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "title",
+                      "detail",
+                      "source"
+                    ],
+                    "properties": {
+                      "title": {
+                        "type": "string",
+                        "x-nullable": true,
+                        "nullable": true
+                      },
+                      "detail": {
+                        "type": "string"
+                      },
+                      "source": {
+                        "type": "string",
+                        "x-nullable": true,
+                        "nullable": true
+                      }
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "required": [
+                    "status",
+                    "message",
+                    "code"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "title": "",
+                    "detail": "Couldn't find Employer with 'id'=34343434",
+                    "source": null
+                  }
+                ],
+                "meta": {
+                  "status": 404,
+                  "message": "Not Found",
+                  "code": "not_found"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/employers/interview_requests": {
+      "get": {
+        "summary": "Fetches all interview requests",
+        "tags": [
+          "Employers/InterviewRequests"
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "X-Auth-Token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "received interview requests",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "description": "Generated from employers/interview_requests#index (200) with shasum 1df5108db59077bb5554c0ee3db722f2a1bca501",
+              "type": "object",
+              "required": [
+                "interview_requests",
+                "meta"
+              ],
+              "properties": {
+                "interview_requests": {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "id",
+                      "created_at",
+                      "updated_at",
+                      "user_id",
+                      "employer_id",
+                      "job_id",
+                      "state",
+                      "expected_salary_amount",
+                      "expected_salary_currency",
+                      "user",
+                      "job",
+                      "skills"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string"
+                      },
+                      "user_id": {
+                        "type": "integer"
+                      },
+                      "employer_id": {
+                        "type": "integer"
+                      },
+                      "job_id": {
+                        "type": "integer"
+                      },
+                      "state": {
+                        "type": "string"
+                      },
+                      "expected_salary_amount": {
+                        "type": "integer"
+                      },
+                      "expected_salary_currency": {
+                        "type": "string"
+                      },
+                      "message": {
+                      },
+                      "user": {
+                        "type": "object",
+                        "required": [
+                          "id",
+                          "created_at",
+                          "updated_at",
+                          "email",
+                          "name",
+                          "description",
+                          "phone",
+                          "job_preference",
+                          "active",
+                          "address",
+                          "latitude",
+                          "longitude",
+                          "avatar"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "integer"
+                          },
+                          "created_at": {
+                            "type": "string"
+                          },
+                          "updated_at": {
+                            "type": "string"
+                          },
+                          "email": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "description": {
+                          },
+                          "phone": {
+                          },
+                          "job_preference": {
+                            "type": "string"
+                          },
+                          "active": {
+                            "type": "boolean"
+                          },
+                          "address": {
+                          },
+                          "latitude": {
+                          },
+                          "longitude": {
+                          },
+                          "avatar": {
+                            "type": "object",
+                            "required": [
+                              "original",
+                              "medium",
+                              "small"
+                            ],
+                            "properties": {
+                              "original": {
+                                "type": "string"
+                              },
+                              "medium": {
+                                "type": "string"
+                              },
+                              "small": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "job": {
+                        "type": "object",
+                        "required": [
+                          "id",
+                          "created_at",
+                          "updated_at",
+                          "employer_id",
+                          "skill_id",
+                          "name",
+                          "job_type",
+                          "salary_type",
+                          "salary_currency",
+                          "salary_from",
+                          "salary_to",
+                          "description",
+                          "offers_equity",
+                          "offers_visa_sponsorship",
+                          "active",
+                          "minimum_experience_level",
+                          "subskills",
+                          "subskill_list",
+                          "skill"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "integer"
+                          },
+                          "created_at": {
+                            "type": "string"
+                          },
+                          "updated_at": {
+                            "type": "string"
+                          },
+                          "employer_id": {
+                            "type": "integer"
+                          },
+                          "skill_id": {
+                            "type": "integer"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "job_type": {
+                            "type": "string"
+                          },
+                          "salary_type": {
+                            "type": "string"
+                          },
+                          "salary_currency": {
+                            "type": "string"
+                          },
+                          "salary_from": {
+                            "type": "integer"
+                          },
+                          "salary_to": {
+                            "type": "integer"
+                          },
+                          "description": {
+                            "type": "string"
+                          },
+                          "offers_equity": {
+                            "type": "boolean"
+                          },
+                          "offers_visa_sponsorship": {
+                            "type": "boolean"
+                          },
+                          "active": {
+                            "type": "boolean"
+                          },
+                          "minimum_experience_level": {
+                            "type": "string"
+                          },
+                          "subskills": {
+                            "type": "array",
+                            "minItems": 0,
+                            "uniqueItems": true,
+                            "items": {
+                            }
+                          },
+                          "subskill_list": {
+                            "type": "array",
+                            "minItems": 0,
+                            "uniqueItems": true,
+                            "items": {
+                            }
+                          },
+                          "skill": {
+                            "type": "object",
+                            "required": [
+                              "id",
+                              "created_at",
+                              "updated_at",
+                              "name",
+                              "svg",
+                              "icon"
+                            ],
+                            "properties": {
+                              "id": {
+                                "type": "integer"
+                              },
+                              "created_at": {
+                                "type": "string"
+                              },
+                              "updated_at": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string"
+                              },
+                              "svg": {
+                              },
+                              "icon": {
+                                "type": "object",
+                                "required": [
+                                  "original",
+                                  "medium",
+                                  "small"
+                                ],
+                                "properties": {
+                                  "original": {
+                                    "type": "string"
+                                  },
+                                  "medium": {
+                                    "type": "string"
+                                  },
+                                  "small": {
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "skills": {
+                        "type": "array",
+                        "minItems": 0,
+                        "uniqueItems": true,
+                        "items": {
+                        }
+                      }
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "required": [
+                    "page"
+                  ],
+                  "properties": {
+                    "page": {
+                      "type": "object",
+                      "required": [
+                        "current_page",
+                        "per_page",
+                        "total_pages",
+                        "total_items"
+                      ],
+                      "properties": {
+                        "current_page": {
+                          "type": "integer"
+                        },
+                        "per_page": {
+                          "type": "integer"
+                        },
+                        "total_pages": {
+                          "type": "integer"
+                        },
+                        "total_items": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "interview_requests": [
+                  {
+                    "id": 1,
+                    "user_id": 1,
+                    "employer_id": 1,
+                    "job_id": 1,
+                    "state": "pending",
+                    "expected_salary_amount": 1000,
+                    "expected_salary_currency": "USD",
+                    "message": null,
+                    "updated_at": "2018-02-26T11:26:11.112Z",
+                    "created_at": "2018-02-26T11:26:11.112Z",
+                    "user": {
+                      "id": 1,
+                      "email": "user_1@example.com",
+                      "name": "user_1",
+                      "description": null,
+                      "phone": null,
+                      "job_preference": "permanent",
+                      "active": true,
+                      "address": null,
+                      "latitude": null,
+                      "longitude": null,
+                      "avatar": {
+                        "original": "http://localhost:3000/assets/missing.png",
+                        "medium": "http://localhost:3000/assets/missing.png",
+                        "small": "http://localhost:3000/assets/missing.png"
+                      },
+                      "updated_at": "2018-02-26T11:26:11.105Z",
+                      "created_at": "2018-02-26T11:26:11.105Z"
+                    },
+                    "job": {
+                      "id": 1,
+                      "employer_id": 1,
+                      "skill_id": 1,
+                      "name": "job_1",
+                      "job_type": "contract",
+                      "salary_type": "annum",
+                      "salary_currency": "USD",
+                      "salary_from": 1000,
+                      "salary_to": 2000,
+                      "description": "MyText",
+                      "offers_equity": false,
+                      "offers_visa_sponsorship": false,
+                      "active": true,
+                      "minimum_experience_level": "junior",
+                      "subskills": [
+
+                      ],
+                      "subskill_list": [
+
+                      ],
+                      "skill": {
+                        "id": 1,
+                        "name": "skill_1",
+                        "svg": null,
+                        "icon": {
+                          "original": "http://localhost:3000/assets/missing.png",
+                          "medium": "http://localhost:3000/assets/missing.png",
+                          "small": "http://localhost:3000/assets/missing.png"
+                        },
+                        "updated_at": "2018-02-26T11:26:11.068Z",
+                        "created_at": "2018-02-26T11:26:11.068Z"
+                      },
+                      "updated_at": "2018-02-26T11:26:11.072Z",
+                      "created_at": "2018-02-26T11:26:11.072Z"
+                    },
+                    "skills": [
+
+                    ]
+                  },
+                  {
+                    "id": 2,
+                    "user_id": 2,
+                    "employer_id": 1,
+                    "job_id": 1,
+                    "state": "pending",
+                    "expected_salary_amount": 1000,
+                    "expected_salary_currency": "USD",
+                    "message": null,
+                    "updated_at": "2018-02-26T11:26:11.119Z",
+                    "created_at": "2018-02-26T11:26:11.119Z",
+                    "user": {
+                      "id": 2,
+                      "email": "user_2@example.com",
+                      "name": "user_2",
+                      "description": null,
+                      "phone": null,
+                      "job_preference": "permanent",
+                      "active": true,
+                      "address": null,
+                      "latitude": null,
+                      "longitude": null,
+                      "avatar": {
+                        "original": "http://localhost:3000/assets/missing.png",
+                        "medium": "http://localhost:3000/assets/missing.png",
+                        "small": "http://localhost:3000/assets/missing.png"
+                      },
+                      "updated_at": "2018-02-26T11:26:11.115Z",
+                      "created_at": "2018-02-26T11:26:11.115Z"
+                    },
+                    "job": {
+                      "id": 1,
+                      "employer_id": 1,
+                      "skill_id": 1,
+                      "name": "job_1",
+                      "job_type": "contract",
+                      "salary_type": "annum",
+                      "salary_currency": "USD",
+                      "salary_from": 1000,
+                      "salary_to": 2000,
+                      "description": "MyText",
+                      "offers_equity": false,
+                      "offers_visa_sponsorship": false,
+                      "active": true,
+                      "minimum_experience_level": "junior",
+                      "subskills": [
+
+                      ],
+                      "subskill_list": [
+
+                      ],
+                      "skill": {
+                        "id": 1,
+                        "name": "skill_1",
+                        "svg": null,
+                        "icon": {
+                          "original": "http://localhost:3000/assets/missing.png",
+                          "medium": "http://localhost:3000/assets/missing.png",
+                          "small": "http://localhost:3000/assets/missing.png"
+                        },
+                        "updated_at": "2018-02-26T11:26:11.068Z",
+                        "created_at": "2018-02-26T11:26:11.068Z"
+                      },
+                      "updated_at": "2018-02-26T11:26:11.072Z",
+                      "created_at": "2018-02-26T11:26:11.072Z"
+                    },
+                    "skills": [
+
+                    ]
+                  }
+                ],
+                "meta": {
+                  "page": {
+                    "current_page": 1,
+                    "per_page": 10,
+                    "total_pages": 1,
+                    "total_items": 2
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/employers/interview_requests/{id}": {
+      "get": {
+        "summary": "Retrieves an interview request",
+        "tags": [
+          "Employers/InterviewRequests"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "X-Auth-Token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "X-Auth-Token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "iv found",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "description": "Generated from employers/interview_requests#show (200) with shasum c2bea6338bf57654dadc0bf53a1ac08b3961095c",
+              "type": "object",
+              "required": [
+                "id",
+                "created_at",
+                "updated_at",
+                "user_id",
+                "employer_id",
+                "job_id",
+                "state",
+                "expected_salary_amount",
+                "expected_salary_currency",
+                "message",
+                "user",
+                "job",
+                "skills"
+              ],
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string"
+                },
+                "user_id": {
+                  "type": "integer"
+                },
+                "employer_id": {
+                  "type": "integer"
+                },
+                "job_id": {
+                  "type": "integer"
+                },
+                "state": {
+                  "type": "string"
+                },
+                "expected_salary_amount": {
+                  "type": "integer"
+                },
+                "expected_salary_currency": {
+                  "type": "string"
+                },
+                "message": {
+                },
+                "user": {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "created_at",
+                    "updated_at",
+                    "email",
+                    "name",
+                    "description",
+                    "phone",
+                    "job_preference",
+                    "active",
+                    "address",
+                    "latitude",
+                    "longitude",
+                    "avatar"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "created_at": {
+                      "type": "string"
+                    },
+                    "updated_at": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "description": {
+                    },
+                    "phone": {
+                    },
+                    "job_preference": {
+                      "type": "string"
+                    },
+                    "active": {
+                      "type": "boolean"
+                    },
+                    "address": {
+                    },
+                    "latitude": {
+                    },
+                    "longitude": {
+                    },
+                    "avatar": {
+                      "type": "object",
+                      "required": [
+                        "original",
+                        "medium",
+                        "small"
+                      ],
+                      "properties": {
+                        "original": {
+                          "type": "string"
+                        },
+                        "medium": {
+                          "type": "string"
+                        },
+                        "small": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "job": {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "created_at",
+                    "updated_at",
+                    "employer_id",
+                    "skill_id",
+                    "name",
+                    "job_type",
+                    "salary_type",
+                    "salary_currency",
+                    "salary_from",
+                    "salary_to",
+                    "description",
+                    "offers_equity",
+                    "offers_visa_sponsorship",
+                    "active",
+                    "minimum_experience_level",
+                    "subskills",
+                    "subskill_list",
+                    "skill"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "created_at": {
+                      "type": "string"
+                    },
+                    "updated_at": {
+                      "type": "string"
+                    },
+                    "employer_id": {
+                      "type": "integer"
+                    },
+                    "skill_id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "job_type": {
+                      "type": "string"
+                    },
+                    "salary_type": {
+                      "type": "string"
+                    },
+                    "salary_currency": {
+                      "type": "string"
+                    },
+                    "salary_from": {
+                      "type": "integer"
+                    },
+                    "salary_to": {
+                      "type": "integer"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "offers_equity": {
+                      "type": "boolean"
+                    },
+                    "offers_visa_sponsorship": {
+                      "type": "boolean"
+                    },
+                    "active": {
+                      "type": "boolean"
+                    },
+                    "minimum_experience_level": {
+                      "type": "string"
+                    },
+                    "subskills": {
+                      "type": "array",
+                      "minItems": 0,
+                      "uniqueItems": true,
+                      "items": {
+                      }
+                    },
+                    "subskill_list": {
+                      "type": "array",
+                      "minItems": 0,
+                      "uniqueItems": true,
+                      "items": {
+                      }
+                    },
+                    "skill": {
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "created_at",
+                        "updated_at",
+                        "name",
+                        "svg",
+                        "icon"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "created_at": {
+                          "type": "string"
+                        },
+                        "updated_at": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "svg": {
+                        },
+                        "icon": {
+                          "type": "object",
+                          "required": [
+                            "original",
+                            "medium",
+                            "small"
+                          ],
+                          "properties": {
+                            "original": {
+                              "type": "string"
+                            },
+                            "medium": {
+                              "type": "string"
+                            },
+                            "small": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "skills": {
+                  "type": "array",
+                  "minItems": 0,
+                  "uniqueItems": true,
+                  "items": {
+                  }
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "id": 1,
+                "user_id": 1,
+                "employer_id": 1,
+                "job_id": 1,
+                "state": "pending",
+                "expected_salary_amount": 1000,
+                "expected_salary_currency": "USD",
+                "message": null,
+                "updated_at": "2018-02-26T11:26:11.198Z",
+                "created_at": "2018-02-26T11:26:11.198Z",
+                "user": {
+                  "id": 1,
+                  "email": "user_3@example.com",
+                  "name": "user_3",
+                  "description": null,
+                  "phone": null,
+                  "job_preference": "permanent",
+                  "active": true,
+                  "address": null,
+                  "latitude": null,
+                  "longitude": null,
+                  "avatar": {
+                    "original": "http://localhost:3000/assets/missing.png",
+                    "medium": "http://localhost:3000/assets/missing.png",
+                    "small": "http://localhost:3000/assets/missing.png"
+                  },
+                  "updated_at": "2018-02-26T11:26:11.194Z",
+                  "created_at": "2018-02-26T11:26:11.194Z"
+                },
+                "job": {
+                  "id": 1,
+                  "employer_id": 1,
+                  "skill_id": 1,
+                  "name": "job_2",
+                  "job_type": "contract",
+                  "salary_type": "annum",
+                  "salary_currency": "USD",
+                  "salary_from": 1000,
+                  "salary_to": 2000,
+                  "description": "MyText",
+                  "offers_equity": false,
+                  "offers_visa_sponsorship": false,
+                  "active": true,
+                  "minimum_experience_level": "junior",
+                  "subskills": [
+
+                  ],
+                  "subskill_list": [
+
+                  ],
+                  "skill": {
+                    "id": 1,
+                    "name": "skill_2",
+                    "svg": null,
+                    "icon": {
+                      "original": "http://localhost:3000/assets/missing.png",
+                      "medium": "http://localhost:3000/assets/missing.png",
+                      "small": "http://localhost:3000/assets/missing.png"
+                    },
+                    "updated_at": "2018-02-26T11:26:11.187Z",
+                    "created_at": "2018-02-26T11:26:11.187Z"
+                  },
+                  "updated_at": "2018-02-26T11:26:11.190Z",
+                  "created_at": "2018-02-26T11:26:11.190Z"
+                },
+                "skills": [
+
+                ]
+              }
+            }
+          },
+          "404": {
+            "description": "iv not found",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "description": "Generated from users#create (422) with shasum 41a840a264cfbaf17585e2a31abf7a312fa76ca1",
+              "type": "object",
+              "required": [
+                "errors",
+                "meta"
+              ],
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "title",
+                      "detail",
+                      "source"
+                    ],
+                    "properties": {
+                      "title": {
+                        "type": "string",
+                        "x-nullable": true,
+                        "nullable": true
+                      },
+                      "detail": {
+                        "type": "string"
+                      },
+                      "source": {
+                        "type": "string",
+                        "x-nullable": true,
+                        "nullable": true
+                      }
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "required": [
+                    "status",
+                    "message",
+                    "code"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "title": "",
+                    "detail": "Couldn't find InterviewRequest with 'id'=43535345",
+                    "source": null
+                  }
+                ],
+                "meta": {
+                  "status": 404,
+                  "message": "Not Found",
+                  "code": "not_found"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/employers/interview_requests/{id}/accept": {
+      "post": {
+        "summary": "Accepts an interview request",
+        "tags": [
+          "Employers/InterviewRequests"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "X-Auth-Token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "iv accepted",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "description": "Generated from employers/interview_requests#show (200) with shasum c2bea6338bf57654dadc0bf53a1ac08b3961095c",
+              "type": "object",
+              "required": [
+                "id",
+                "created_at",
+                "updated_at",
+                "user_id",
+                "employer_id",
+                "job_id",
+                "state",
+                "expected_salary_amount",
+                "expected_salary_currency",
+                "message",
+                "user",
+                "job",
+                "skills"
+              ],
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string"
+                },
+                "user_id": {
+                  "type": "integer"
+                },
+                "employer_id": {
+                  "type": "integer"
+                },
+                "job_id": {
+                  "type": "integer"
+                },
+                "state": {
+                  "type": "string"
+                },
+                "expected_salary_amount": {
+                  "type": "integer"
+                },
+                "expected_salary_currency": {
+                  "type": "string"
+                },
+                "message": {
+                },
+                "user": {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "created_at",
+                    "updated_at",
+                    "email",
+                    "name",
+                    "description",
+                    "phone",
+                    "job_preference",
+                    "active",
+                    "address",
+                    "latitude",
+                    "longitude",
+                    "avatar"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "created_at": {
+                      "type": "string"
+                    },
+                    "updated_at": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "description": {
+                    },
+                    "phone": {
+                    },
+                    "job_preference": {
+                      "type": "string"
+                    },
+                    "active": {
+                      "type": "boolean"
+                    },
+                    "address": {
+                    },
+                    "latitude": {
+                    },
+                    "longitude": {
+                    },
+                    "avatar": {
+                      "type": "object",
+                      "required": [
+                        "original",
+                        "medium",
+                        "small"
+                      ],
+                      "properties": {
+                        "original": {
+                          "type": "string"
+                        },
+                        "medium": {
+                          "type": "string"
+                        },
+                        "small": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "job": {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "created_at",
+                    "updated_at",
+                    "employer_id",
+                    "skill_id",
+                    "name",
+                    "job_type",
+                    "salary_type",
+                    "salary_currency",
+                    "salary_from",
+                    "salary_to",
+                    "description",
+                    "offers_equity",
+                    "offers_visa_sponsorship",
+                    "active",
+                    "minimum_experience_level",
+                    "subskills",
+                    "subskill_list",
+                    "skill"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "created_at": {
+                      "type": "string"
+                    },
+                    "updated_at": {
+                      "type": "string"
+                    },
+                    "employer_id": {
+                      "type": "integer"
+                    },
+                    "skill_id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "job_type": {
+                      "type": "string"
+                    },
+                    "salary_type": {
+                      "type": "string"
+                    },
+                    "salary_currency": {
+                      "type": "string"
+                    },
+                    "salary_from": {
+                      "type": "integer"
+                    },
+                    "salary_to": {
+                      "type": "integer"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "offers_equity": {
+                      "type": "boolean"
+                    },
+                    "offers_visa_sponsorship": {
+                      "type": "boolean"
+                    },
+                    "active": {
+                      "type": "boolean"
+                    },
+                    "minimum_experience_level": {
+                      "type": "string"
+                    },
+                    "subskills": {
+                      "type": "array",
+                      "minItems": 0,
+                      "uniqueItems": true,
+                      "items": {
+                      }
+                    },
+                    "subskill_list": {
+                      "type": "array",
+                      "minItems": 0,
+                      "uniqueItems": true,
+                      "items": {
+                      }
+                    },
+                    "skill": {
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "created_at",
+                        "updated_at",
+                        "name",
+                        "svg",
+                        "icon"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "created_at": {
+                          "type": "string"
+                        },
+                        "updated_at": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "svg": {
+                        },
+                        "icon": {
+                          "type": "object",
+                          "required": [
+                            "original",
+                            "medium",
+                            "small"
+                          ],
+                          "properties": {
+                            "original": {
+                              "type": "string"
+                            },
+                            "medium": {
+                              "type": "string"
+                            },
+                            "small": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "skills": {
+                  "type": "array",
+                  "minItems": 0,
+                  "uniqueItems": true,
+                  "items": {
+                  }
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "id": 1,
+                "user_id": 1,
+                "employer_id": 1,
+                "job_id": 1,
+                "state": "accepted",
+                "expected_salary_amount": 1000,
+                "expected_salary_currency": "USD",
+                "message": null,
+                "updated_at": "2018-02-26T11:26:11.263Z",
+                "created_at": "2018-02-26T11:26:11.252Z",
+                "user": {
+                  "id": 1,
+                  "email": "user_4@example.com",
+                  "name": "user_4",
+                  "description": null,
+                  "phone": null,
+                  "job_preference": "permanent",
+                  "active": true,
+                  "address": null,
+                  "latitude": null,
+                  "longitude": null,
+                  "avatar": {
+                    "original": "http://localhost:3000/assets/missing.png",
+                    "medium": "http://localhost:3000/assets/missing.png",
+                    "small": "http://localhost:3000/assets/missing.png"
+                  },
+                  "updated_at": "2018-02-26T11:26:11.248Z",
+                  "created_at": "2018-02-26T11:26:11.248Z"
+                },
+                "job": {
+                  "id": 1,
+                  "employer_id": 1,
+                  "skill_id": 1,
+                  "name": "job_3",
+                  "job_type": "contract",
+                  "salary_type": "annum",
+                  "salary_currency": "USD",
+                  "salary_from": 1000,
+                  "salary_to": 2000,
+                  "description": "MyText",
+                  "offers_equity": false,
+                  "offers_visa_sponsorship": false,
+                  "active": true,
+                  "minimum_experience_level": "junior",
+                  "subskills": [
+
+                  ],
+                  "subskill_list": [
+
+                  ],
+                  "skill": {
+                    "id": 1,
+                    "name": "skill_3",
+                    "svg": null,
+                    "icon": {
+                      "original": "http://localhost:3000/assets/missing.png",
+                      "medium": "http://localhost:3000/assets/missing.png",
+                      "small": "http://localhost:3000/assets/missing.png"
+                    },
+                    "updated_at": "2018-02-26T11:26:11.241Z",
+                    "created_at": "2018-02-26T11:26:11.241Z"
+                  },
+                  "updated_at": "2018-02-26T11:26:11.243Z",
+                  "created_at": "2018-02-26T11:26:11.243Z"
+                },
+                "skills": [
+
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/employers/interview_requests/{id}/reject": {
+      "post": {
+        "summary": "Rejects an interview request",
+        "tags": [
+          "Employers/InterviewRequests"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "X-Auth-Token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "iv rejected",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "description": "Generated from employers/interview_requests#show (200) with shasum c2bea6338bf57654dadc0bf53a1ac08b3961095c",
+              "type": "object",
+              "required": [
+                "id",
+                "created_at",
+                "updated_at",
+                "user_id",
+                "employer_id",
+                "job_id",
+                "state",
+                "expected_salary_amount",
+                "expected_salary_currency",
+                "message",
+                "user",
+                "job",
+                "skills"
+              ],
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string"
+                },
+                "user_id": {
+                  "type": "integer"
+                },
+                "employer_id": {
+                  "type": "integer"
+                },
+                "job_id": {
+                  "type": "integer"
+                },
+                "state": {
+                  "type": "string"
+                },
+                "expected_salary_amount": {
+                  "type": "integer"
+                },
+                "expected_salary_currency": {
+                  "type": "string"
+                },
+                "message": {
+                },
+                "user": {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "created_at",
+                    "updated_at",
+                    "email",
+                    "name",
+                    "description",
+                    "phone",
+                    "job_preference",
+                    "active",
+                    "address",
+                    "latitude",
+                    "longitude",
+                    "avatar"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "created_at": {
+                      "type": "string"
+                    },
+                    "updated_at": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "description": {
+                    },
+                    "phone": {
+                    },
+                    "job_preference": {
+                      "type": "string"
+                    },
+                    "active": {
+                      "type": "boolean"
+                    },
+                    "address": {
+                    },
+                    "latitude": {
+                    },
+                    "longitude": {
+                    },
+                    "avatar": {
+                      "type": "object",
+                      "required": [
+                        "original",
+                        "medium",
+                        "small"
+                      ],
+                      "properties": {
+                        "original": {
+                          "type": "string"
+                        },
+                        "medium": {
+                          "type": "string"
+                        },
+                        "small": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "job": {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "created_at",
+                    "updated_at",
+                    "employer_id",
+                    "skill_id",
+                    "name",
+                    "job_type",
+                    "salary_type",
+                    "salary_currency",
+                    "salary_from",
+                    "salary_to",
+                    "description",
+                    "offers_equity",
+                    "offers_visa_sponsorship",
+                    "active",
+                    "minimum_experience_level",
+                    "subskills",
+                    "subskill_list",
+                    "skill"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "created_at": {
+                      "type": "string"
+                    },
+                    "updated_at": {
+                      "type": "string"
+                    },
+                    "employer_id": {
+                      "type": "integer"
+                    },
+                    "skill_id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "job_type": {
+                      "type": "string"
+                    },
+                    "salary_type": {
+                      "type": "string"
+                    },
+                    "salary_currency": {
+                      "type": "string"
+                    },
+                    "salary_from": {
+                      "type": "integer"
+                    },
+                    "salary_to": {
+                      "type": "integer"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "offers_equity": {
+                      "type": "boolean"
+                    },
+                    "offers_visa_sponsorship": {
+                      "type": "boolean"
+                    },
+                    "active": {
+                      "type": "boolean"
+                    },
+                    "minimum_experience_level": {
+                      "type": "string"
+                    },
+                    "subskills": {
+                      "type": "array",
+                      "minItems": 0,
+                      "uniqueItems": true,
+                      "items": {
+                      }
+                    },
+                    "subskill_list": {
+                      "type": "array",
+                      "minItems": 0,
+                      "uniqueItems": true,
+                      "items": {
+                      }
+                    },
+                    "skill": {
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "created_at",
+                        "updated_at",
+                        "name",
+                        "svg",
+                        "icon"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "created_at": {
+                          "type": "string"
+                        },
+                        "updated_at": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "svg": {
+                        },
+                        "icon": {
+                          "type": "object",
+                          "required": [
+                            "original",
+                            "medium",
+                            "small"
+                          ],
+                          "properties": {
+                            "original": {
+                              "type": "string"
+                            },
+                            "medium": {
+                              "type": "string"
+                            },
+                            "small": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "skills": {
+                  "type": "array",
+                  "minItems": 0,
+                  "uniqueItems": true,
+                  "items": {
+                  }
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "id": 1,
+                "user_id": 1,
+                "employer_id": 1,
+                "job_id": 1,
+                "state": "rejected",
+                "expected_salary_amount": 1000,
+                "expected_salary_currency": "USD",
+                "message": null,
+                "updated_at": "2018-02-26T11:26:11.319Z",
+                "created_at": "2018-02-26T11:26:11.313Z",
+                "user": {
+                  "id": 1,
+                  "email": "user_5@example.com",
+                  "name": "user_5",
+                  "description": null,
+                  "phone": null,
+                  "job_preference": "permanent",
+                  "active": true,
+                  "address": null,
+                  "latitude": null,
+                  "longitude": null,
+                  "avatar": {
+                    "original": "http://localhost:3000/assets/missing.png",
+                    "medium": "http://localhost:3000/assets/missing.png",
+                    "small": "http://localhost:3000/assets/missing.png"
+                  },
+                  "updated_at": "2018-02-26T11:26:11.309Z",
+                  "created_at": "2018-02-26T11:26:11.309Z"
+                },
+                "job": {
+                  "id": 1,
+                  "employer_id": 1,
+                  "skill_id": 1,
+                  "name": "job_4",
+                  "job_type": "contract",
+                  "salary_type": "annum",
+                  "salary_currency": "USD",
+                  "salary_from": 1000,
+                  "salary_to": 2000,
+                  "description": "MyText",
+                  "offers_equity": false,
+                  "offers_visa_sponsorship": false,
+                  "active": true,
+                  "minimum_experience_level": "junior",
+                  "subskills": [
+
+                  ],
+                  "subskill_list": [
+
+                  ],
+                  "skill": {
+                    "id": 1,
+                    "name": "skill_4",
+                    "svg": null,
+                    "icon": {
+                      "original": "http://localhost:3000/assets/missing.png",
+                      "medium": "http://localhost:3000/assets/missing.png",
+                      "small": "http://localhost:3000/assets/missing.png"
+                    },
+                    "updated_at": "2018-02-26T11:26:11.300Z",
+                    "created_at": "2018-02-26T11:26:11.300Z"
+                  },
+                  "updated_at": "2018-02-26T11:26:11.303Z",
+                  "created_at": "2018-02-26T11:26:11.303Z"
+                },
+                "skills": [
+
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/employers/sessions": {
+      "post": {
+        "summary": "Creates a session",
+        "tags": [
+          "Employers/Sessions"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "session",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "email",
+                "password"
+              ]
+            }
+          },
+          {
+            "name": "X-Auth-Token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "X-Auth-Token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "session created",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "description": "Generated from employers/sessions#create (200) with shasum 46fd43288947c582de120dff1484ea82ebfe7e10",
+              "type": "object",
+              "required": [
+                "id",
+                "created_at",
+                "updated_at",
+                "name",
+                "email",
+                "company_size",
+                "company_type",
+                "description",
+                "year_founded",
+                "active",
+                "logo",
+                "address",
+                "latitude",
+                "longitude",
+                "facebook_url",
+                "twitter_url",
+                "github_url",
+                "api_token"
+              ],
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "company_size": {
+                  "type": "string"
+                },
+                "company_type": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "year_founded": {
+                  "type": "integer"
+                },
+                "active": {
+                  "type": "boolean"
+                },
+                "logo": {
+                  "type": "object",
+                  "required": [
+                    "original",
+                    "medium",
+                    "small"
+                  ],
+                  "properties": {
+                    "original": {
+                      "type": "string"
+                    },
+                    "medium": {
+                      "type": "string"
+                    },
+                    "small": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "address": {
+                  "type": "string"
+                },
+                "latitude": {
+                  "type": "number"
+                },
+                "longitude": {
+                  "type": "number"
+                },
+                "facebook_url": {
+                  "type": "string"
+                },
+                "twitter_url": {
+                  "type": "string"
+                },
+                "github_url": {
+                  "type": "string"
+                },
+                "api_token": {
+                  "type": "string"
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "id": 1,
+                "name": "employer_12",
+                "email": "foo@bar.com",
+                "company_size": "small",
+                "company_type": "startup",
+                "description": "MyText",
+                "year_founded": 1,
+                "active": true,
+                "logo": {
+                  "original": "http://localhost:3000/assets/missing.png",
+                  "medium": "http://localhost:3000/assets/missing.png",
+                  "small": "http://localhost:3000/assets/missing.png"
+                },
+                "address": "W22ET, London",
+                "latitude": 40.7143528,
+                "longitude": -74.0059731,
+                "facebook_url": "https://www.facebook.com/example",
+                "twitter_url": "https://www.twitter.com/example",
+                "github_url": "https://www.github.com/example",
+                "updated_at": "2018-02-26T11:26:11.350Z",
+                "created_at": "2018-02-26T11:26:11.341Z",
+                "api_token": "xYcAWcULNoizwlSI6GJQgw"
+              }
+            }
+          },
+          "404": {
+            "description": "no such user",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "description": "Generated from users#create (422) with shasum 41a840a264cfbaf17585e2a31abf7a312fa76ca1",
+              "type": "object",
+              "required": [
+                "errors",
+                "meta"
+              ],
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "title",
+                      "detail",
+                      "source"
+                    ],
+                    "properties": {
+                      "title": {
+                        "type": "string",
+                        "x-nullable": true,
+                        "nullable": true
+                      },
+                      "detail": {
+                        "type": "string"
+                      },
+                      "source": {
+                        "type": "string",
+                        "x-nullable": true,
+                        "nullable": true
+                      }
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "required": [
+                    "status",
+                    "message",
+                    "code"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "title": "",
+                    "detail": "NOT FOUND",
+                    "source": null
+                  }
+                ],
+                "meta": {
+                  "status": 404,
+                  "message": "Not Found",
+                  "code": "not_found"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "Retrieves a session",
+        "tags": [
+          "Employers/Sessions"
+        ],
+        "responses": {
+          "200": {
+            "description": "session found",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "description": "Generated from employers/sessions#show (200) with shasum 0d0042f732fdc66cea3d0067f6453ba272f25f38",
+              "type": "object",
+              "required": [
+                "id",
+                "created_at",
+                "updated_at",
+                "name",
+                "email",
+                "company_size",
+                "company_type",
+                "description",
+                "year_founded",
+                "active",
+                "logo",
+                "address",
+                "latitude",
+                "longitude",
+                "facebook_url",
+                "twitter_url",
+                "github_url",
+                "api_token"
+              ],
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "company_size": {
+                  "type": "string"
+                },
+                "company_type": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "year_founded": {
+                  "type": "integer"
+                },
+                "active": {
+                  "type": "boolean"
+                },
+                "logo": {
+                  "type": "object",
+                  "required": [
+                    "original",
+                    "medium",
+                    "small"
+                  ],
+                  "properties": {
+                    "original": {
+                      "type": "string"
+                    },
+                    "medium": {
+                      "type": "string"
+                    },
+                    "small": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "address": {
+                  "type": "string"
+                },
+                "latitude": {
+                  "type": "number"
+                },
+                "longitude": {
+                  "type": "number"
+                },
+                "facebook_url": {
+                  "type": "string"
+                },
+                "twitter_url": {
+                  "type": "string"
+                },
+                "github_url": {
+                  "type": "string"
+                },
+                "api_token": {
+                  "type": "string"
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "id": 1,
+                "name": "employer_14",
+                "email": "foo@bar.com",
+                "company_size": "small",
+                "company_type": "startup",
+                "description": "MyText",
+                "year_founded": 1,
+                "active": true,
+                "logo": {
+                  "original": "http://localhost:3000/assets/missing.png",
+                  "medium": "http://localhost:3000/assets/missing.png",
+                  "small": "http://localhost:3000/assets/missing.png"
+                },
+                "address": "W22ET, London",
+                "latitude": 40.7143528,
+                "longitude": -74.0059731,
+                "facebook_url": "https://www.facebook.com/example",
+                "twitter_url": "https://www.twitter.com/example",
+                "github_url": "https://www.github.com/example",
+                "updated_at": "2018-02-26T11:26:11.820Z",
+                "created_at": "2018-02-26T11:26:11.820Z",
+                "api_token": "kAO82qwdZqpvmwl7v667KA"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deletes a session",
+        "tags": [
+          "Employers/Sessions"
+        ],
+        "responses": {
+          "200": {
+            "description": "session destroyed",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "description": "Generated from employers/sessions#destroy (200) with shasum bf21a9e8fbc5a3846fb05b4fa0859e0917b2202f",
+              "type": "object",
+              "properties": {
+              }
+            },
+            "examples": {
+              "application/json": {
+              }
+            }
+          }
+        }
+      }
+    },
+    "/employers/users": {
+      "get": {
+        "summary": "Fetches all users",
+        "tags": [
+          "Employers/Users"
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "q[name_cont]",
+            "in": "query",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "X-Auth-Token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "received users",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "description": "Generated from employers/users#index (200) with shasum e918991e803ec887acd6be88886ee68ce7ce8fdc",
+              "type": "object",
+              "required": [
+                "users",
+                "meta"
+              ],
+              "properties": {
+                "users": {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "id",
+                      "email",
+                      "name",
+                      "job_preference",
+                      "active",
+                      "avatar",
+                      "updated_at",
+                      "created_at"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "email": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "description": {
+                      },
+                      "phone": {
+                      },
+                      "job_preference": {
+                        "type": "string"
+                      },
+                      "active": {
+                        "type": "boolean"
+                      },
+                      "address": {
+                      },
+                      "latitude": {
+                      },
+                      "longitude": {
+                      },
+                      "avatar": {
+                        "type": "object",
+                        "required": [
+                          "original",
+                          "medium",
+                          "small"
+                        ],
+                        "properties": {
+                          "original": {
+                            "type": "string"
+                          },
+                          "medium": {
+                            "type": "string"
+                          },
+                          "small": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "updated_at": {
+                        "type": "string"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "required": [
+                    "page"
+                  ],
+                  "properties": {
+                    "page": {
+                      "type": "object",
+                      "required": [
+                        "current_page",
+                        "per_page",
+                        "total_pages",
+                        "total_items"
+                      ],
+                      "properties": {
+                        "current_page": {
+                          "type": "integer"
+                        },
+                        "per_page": {
+                          "type": "integer"
+                        },
+                        "total_pages": {
+                          "type": "integer"
+                        },
+                        "total_items": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "users": [
+                  {
+                    "id": 1,
+                    "email": "user_6@example.com",
+                    "name": "user_6",
+                    "description": null,
+                    "phone": null,
+                    "job_preference": "permanent",
+                    "active": true,
+                    "address": null,
+                    "latitude": null,
+                    "longitude": null,
+                    "avatar": {
+                      "original": "http://localhost:3000/assets/missing.png",
+                      "medium": "http://localhost:3000/assets/missing.png",
+                      "small": "http://localhost:3000/assets/missing.png"
+                    },
+                    "updated_at": "2018-02-26T11:26:11.847Z",
+                    "created_at": "2018-02-26T11:26:11.847Z"
+                  },
+                  {
+                    "id": 2,
+                    "email": "user_7@example.com",
+                    "name": "user_7",
+                    "description": null,
+                    "phone": null,
+                    "job_preference": "permanent",
+                    "active": true,
+                    "address": null,
+                    "latitude": null,
+                    "longitude": null,
+                    "avatar": {
+                      "original": "http://localhost:3000/assets/missing.png",
+                      "medium": "http://localhost:3000/assets/missing.png",
+                      "small": "http://localhost:3000/assets/missing.png"
+                    },
+                    "updated_at": "2018-02-26T11:26:11.851Z",
+                    "created_at": "2018-02-26T11:26:11.851Z"
+                  }
+                ],
+                "meta": {
+                  "page": {
+                    "current_page": 1,
+                    "per_page": 10,
+                    "total_pages": 1,
+                    "total_items": 2
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/employers/users/{id}": {
+      "get": {
+        "summary": "Retrieves a user",
+        "tags": [
+          "Employers/Users"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "X-Auth-Token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "X-Auth-Token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "user found",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "description": "Generated from employers/users#show (200) with shasum 0ea3fac71878fbc8ec20c6cc93924b6a624c78d7",
+              "type": "object",
+              "required": [
+                "id",
+                "created_at",
+                "updated_at",
+                "email",
+                "name",
+                "description",
+                "phone",
+                "job_preference",
+                "active",
+                "address",
+                "latitude",
+                "longitude",
+                "avatar"
+              ],
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                },
+                "phone": {
+                },
+                "job_preference": {
+                  "type": "string"
+                },
+                "active": {
+                  "type": "boolean"
+                },
+                "address": {
+                },
+                "latitude": {
+                },
+                "longitude": {
+                },
+                "avatar": {
+                  "type": "object",
+                  "required": [
+                    "original",
+                    "medium",
+                    "small"
+                  ],
+                  "properties": {
+                    "original": {
+                      "type": "string"
+                    },
+                    "medium": {
+                      "type": "string"
+                    },
+                    "small": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "id": 1,
+                "email": "user_8@example.com",
+                "name": "user_8",
+                "description": null,
+                "phone": null,
+                "job_preference": "permanent",
+                "active": true,
+                "address": null,
+                "latitude": null,
+                "longitude": null,
+                "avatar": {
+                  "original": "http://localhost:3000/assets/missing.png",
+                  "medium": "http://localhost:3000/assets/missing.png",
+                  "small": "http://localhost:3000/assets/missing.png"
+                },
+                "updated_at": "2018-02-26T11:26:11.872Z",
+                "created_at": "2018-02-26T11:26:11.872Z"
+              }
+            }
+          },
+          "404": {
+            "description": "user not found",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "description": "Generated from users#create (422) with shasum 41a840a264cfbaf17585e2a31abf7a312fa76ca1",
+              "type": "object",
+              "required": [
+                "errors",
+                "meta"
+              ],
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "title",
+                      "detail",
+                      "source"
+                    ],
+                    "properties": {
+                      "title": {
+                        "type": "string",
+                        "x-nullable": true,
+                        "nullable": true
+                      },
+                      "detail": {
+                        "type": "string"
+                      },
+                      "source": {
+                        "type": "string",
+                        "x-nullable": true,
+                        "nullable": true
+                      }
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "required": [
+                    "status",
+                    "message",
+                    "code"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "title": "",
+                    "detail": "Couldn't find User with 'id'=43535345",
+                    "source": null
+                  }
+                ],
+                "meta": {
+                  "status": 404,
+                  "message": "Not Found",
+                  "code": "not_found"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/interview_requests": {
+      "get": {
+        "summary": "Fetches all interview requests",
+        "tags": [
+          "Users/InterviewRequests"
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "X-Auth-Token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "received interview requests",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "description": "Generated from users/interview_requests#index (200) with shasum 3348de198328e2f123e4be7ac97d0ae14667ae69",
+              "type": "object",
+              "required": [
+                "interview_requests",
+                "meta"
+              ],
+              "properties": {
+                "interview_requests": {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "id",
+                      "created_at",
+                      "updated_at",
+                      "user_id",
+                      "employer_id",
+                      "job_id",
+                      "state",
+                      "expected_salary_amount",
+                      "expected_salary_currency"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string"
+                      },
+                      "user_id": {
+                        "type": "integer"
+                      },
+                      "employer_id": {
+                        "type": "integer"
+                      },
+                      "job_id": {
+                        "type": "integer"
+                      },
+                      "state": {
+                        "type": "string"
+                      },
+                      "expected_salary_amount": {
+                        "type": "integer"
+                      },
+                      "expected_salary_currency": {
+                        "type": "string"
+                      },
+                      "message": {
+                      }
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "required": [
+                    "page"
+                  ],
+                  "properties": {
+                    "page": {
+                      "type": "object",
+                      "required": [
+                        "current_page",
+                        "per_page",
+                        "total_pages",
+                        "total_items"
+                      ],
+                      "properties": {
+                        "current_page": {
+                          "type": "integer"
+                        },
+                        "per_page": {
+                          "type": "integer"
+                        },
+                        "total_pages": {
+                          "type": "integer"
+                        },
+                        "total_items": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "interview_requests": [
+                  {
+                    "id": 1,
+                    "user_id": 1,
+                    "employer_id": 1,
+                    "job_id": 1,
+                    "state": "pending",
+                    "expected_salary_amount": 1000,
+                    "expected_salary_currency": "USD",
+                    "message": null,
+                    "updated_at": "2018-02-26T11:26:11.912Z",
+                    "created_at": "2018-02-26T11:26:11.912Z"
+                  },
+                  {
+                    "id": 2,
+                    "user_id": 1,
+                    "employer_id": 2,
+                    "job_id": 2,
+                    "state": "pending",
+                    "expected_salary_amount": 1000,
+                    "expected_salary_currency": "USD",
+                    "message": null,
+                    "updated_at": "2018-02-26T11:26:11.927Z",
+                    "created_at": "2018-02-26T11:26:11.927Z"
+                  }
+                ],
+                "meta": {
+                  "page": {
+                    "current_page": 1,
+                    "per_page": 10,
+                    "total_pages": 1,
+                    "total_items": 2
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Creates an iv",
+        "tags": [
+          "Users/InterviewRequests"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "interview_request",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "job_id": {
+                  "type": "integer"
+                },
+                "expected_salary_amount": {
+                  "type": "integer"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "job_id"
+              ]
+            }
+          },
+          {
+            "name": "X-Auth-Token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "X-Auth-Token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "iv created",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "description": "Generated from users/interview_requests#create (200) with shasum 95c721c46d8adc5ee2d7112e06193e7dc8c9dc0b",
+              "type": "object",
+              "required": [
+                "id",
+                "created_at",
+                "updated_at",
+                "user_id",
+                "employer_id",
+                "job_id",
+                "state",
+                "expected_salary_amount",
+                "expected_salary_currency",
+                "message"
+              ],
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string"
+                },
+                "user_id": {
+                  "type": "integer"
+                },
+                "employer_id": {
+                  "type": "integer"
+                },
+                "job_id": {
+                  "type": "integer"
+                },
+                "state": {
+                  "type": "string"
+                },
+                "expected_salary_amount": {
+                  "type": "integer",
+                  "x-nullable": true,
+                  "nullable": true
+                },
+                "expected_salary_currency": {
+                  "type": "string"
+                },
+                "message": {
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "id": 1,
+                "user_id": 1,
+                "employer_id": 1,
+                "job_id": 1,
+                "state": "pending",
+                "expected_salary_amount": null,
+                "expected_salary_currency": "USD",
+                "message": null,
+                "updated_at": "2018-02-26T11:26:11.967Z",
+                "created_at": "2018-02-26T11:26:11.967Z"
+              }
+            }
+          },
+          "422": {
+            "description": "invalid request",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "description": "Generated from users#create (422) with shasum 41a840a264cfbaf17585e2a31abf7a312fa76ca1",
+              "type": "object",
+              "required": [
+                "errors",
+                "meta"
+              ],
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "title",
+                      "detail",
+                      "source"
+                    ],
+                    "properties": {
+                      "title": {
+                        "type": "string",
+                        "x-nullable": true,
+                        "nullable": true
+                      },
+                      "detail": {
+                        "type": "string"
+                      },
+                      "source": {
+                        "type": "string",
+                        "x-nullable": true,
+                        "nullable": true
+                      }
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "required": [
+                    "status",
+                    "message",
+                    "code"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "title": "",
+                    "detail": "Employer must exist",
+                    "source": "employer"
+                  },
+                  {
+                    "title": "",
+                    "detail": "Employer can't be blank",
+                    "source": "employer"
+                  },
+                  {
+                    "title": "",
+                    "detail": "Job must exist",
+                    "source": "job"
+                  },
+                  {
+                    "title": "",
+                    "detail": "Job can't be blank",
+                    "source": "job"
+                  }
+                ],
+                "meta": {
+                  "status": 422,
+                  "message": "Unprocessable Entity",
+                  "code": "processing_error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/interview_requests/{id}": {
+      "get": {
+        "summary": "Retrieves an interview request",
+        "tags": [
+          "Users/InterviewRequests"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "X-Auth-Token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "X-Auth-Token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "iv found",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "description": "Generated from users/interview_requests#show (200) with shasum a69a710dc7ca6b2ad87beb33c431828ffb6e2f57",
+              "type": "object",
+              "required": [
+                "id",
+                "created_at",
+                "updated_at",
+                "user_id",
+                "employer_id",
+                "job_id",
+                "state",
+                "expected_salary_amount",
+                "expected_salary_currency",
+                "message"
+              ],
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string"
+                },
+                "user_id": {
+                  "type": "integer"
+                },
+                "employer_id": {
+                  "type": "integer"
+                },
+                "job_id": {
+                  "type": "integer"
+                },
+                "state": {
+                  "type": "string"
+                },
+                "expected_salary_amount": {
+                  "type": "integer"
+                },
+                "expected_salary_currency": {
+                  "type": "string"
+                },
+                "message": {
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "id": 1,
+                "user_id": 1,
+                "employer_id": 1,
+                "job_id": 1,
+                "state": "pending",
+                "expected_salary_amount": 1000,
+                "expected_salary_currency": "USD",
+                "message": null,
+                "updated_at": "2018-02-26T11:26:12.010Z",
+                "created_at": "2018-02-26T11:26:12.010Z"
+              }
+            }
+          },
+          "404": {
+            "description": "iv not found",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "description": "Generated from users#create (422) with shasum 41a840a264cfbaf17585e2a31abf7a312fa76ca1",
+              "type": "object",
+              "required": [
+                "errors",
+                "meta"
+              ],
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "title",
+                      "detail",
+                      "source"
+                    ],
+                    "properties": {
+                      "title": {
+                        "type": "string",
+                        "x-nullable": true,
+                        "nullable": true
+                      },
+                      "detail": {
+                        "type": "string"
+                      },
+                      "source": {
+                        "type": "string",
+                        "x-nullable": true,
+                        "nullable": true
+                      }
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "required": [
+                    "status",
+                    "message",
+                    "code"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "title": "",
+                    "detail": "Couldn't find InterviewRequest with 'id'=43535345",
+                    "source": null
+                  }
+                ],
+                "meta": {
+                  "status": 404,
+                  "message": "Not Found",
+                  "code": "not_found"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/interview_requests/{id}/withdraw": {
+      "post": {
+        "summary": "Withdraws an interview request",
+        "tags": [
+          "Users/InterviewRequests"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "X-Auth-Token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "iv withdrawn",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "description": "Generated from users/interview_requests#show (200) with shasum a69a710dc7ca6b2ad87beb33c431828ffb6e2f57",
+              "type": "object",
+              "required": [
+                "id",
+                "created_at",
+                "updated_at",
+                "user_id",
+                "employer_id",
+                "job_id",
+                "state",
+                "expected_salary_amount",
+                "expected_salary_currency",
+                "message"
+              ],
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string"
+                },
+                "user_id": {
+                  "type": "integer"
+                },
+                "employer_id": {
+                  "type": "integer"
+                },
+                "job_id": {
+                  "type": "integer"
+                },
+                "state": {
+                  "type": "string"
+                },
+                "expected_salary_amount": {
+                  "type": "integer"
+                },
+                "expected_salary_currency": {
+                  "type": "string"
+                },
+                "message": {
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "id": 1,
+                "user_id": 1,
+                "employer_id": 1,
+                "job_id": 1,
+                "state": "withdrawn",
+                "expected_salary_amount": 1000,
+                "expected_salary_currency": "USD",
+                "message": null,
+                "updated_at": "2018-02-26T11:26:12.057Z",
+                "created_at": "2018-02-26T11:26:12.050Z"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/jobs": {
+      "get": {
+        "summary": "Fetches all jobs",
+        "tags": [
+          "Users/Jobs"
+        ],
+        "parameters": [
+          {
+            "name": "select_applied",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "reject_applied",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "q[name_cont]",
+            "in": "query",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "X-Auth-Token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "received jobs",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "description": "Generated from users/jobs#index (200) with shasum 1e50c046d65a4caecfacaf6f30e8c1d6d110c058",
+              "type": "object",
+              "required": [
+                "jobs",
+                "meta"
+              ],
+              "properties": {
+                "jobs": {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "id",
+                      "created_at",
+                      "updated_at",
+                      "employer_id",
+                      "skill_id",
+                      "name",
+                      "job_type",
+                      "salary_type",
+                      "salary_currency",
+                      "salary_from",
+                      "salary_to",
+                      "description",
+                      "active",
+                      "minimum_experience_level",
+                      "subskills",
+                      "subskill_list",
+                      "skill",
+                      "employer"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string"
+                      },
+                      "employer_id": {
+                        "type": "integer"
+                      },
+                      "skill_id": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "job_type": {
+                        "type": "string"
+                      },
+                      "salary_type": {
+                        "type": "string"
+                      },
+                      "salary_currency": {
+                        "type": "string"
+                      },
+                      "salary_from": {
+                        "type": "integer"
+                      },
+                      "salary_to": {
+                        "type": "integer"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "offers_equity": {
+                        "type": "boolean"
+                      },
+                      "offers_visa_sponsorship": {
+                        "type": "boolean"
+                      },
+                      "active": {
+                        "type": "boolean"
+                      },
+                      "minimum_experience_level": {
+                        "type": "string"
+                      },
+                      "subskills": {
+                        "type": "array",
+                        "minItems": 0,
+                        "uniqueItems": true,
+                        "items": {
+                        }
+                      },
+                      "subskill_list": {
+                        "type": "array",
+                        "minItems": 0,
+                        "uniqueItems": true,
+                        "items": {
+                        }
+                      },
+                      "skill": {
+                        "type": "object",
+                        "required": [
+                          "id",
+                          "created_at",
+                          "updated_at",
+                          "name",
+                          "svg",
+                          "icon"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "integer"
+                          },
+                          "created_at": {
+                            "type": "string"
+                          },
+                          "updated_at": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "svg": {
+                          },
+                          "icon": {
+                            "type": "object",
+                            "required": [
+                              "original",
+                              "medium",
+                              "small"
+                            ],
+                            "properties": {
+                              "original": {
+                                "type": "string"
+                              },
+                              "medium": {
+                                "type": "string"
+                              },
+                              "small": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "application": {
+                      },
+                      "employer": {
+                        "type": "object",
+                        "required": [
+                          "id",
+                          "created_at",
+                          "updated_at",
+                          "name",
+                          "email",
+                          "company_size",
+                          "company_type",
+                          "description",
+                          "year_founded",
+                          "active",
+                          "logo",
+                          "address",
+                          "latitude",
+                          "longitude",
+                          "facebook_url",
+                          "twitter_url",
+                          "github_url"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "integer"
+                          },
+                          "created_at": {
+                            "type": "string"
+                          },
+                          "updated_at": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "email": {
+                            "type": "string"
+                          },
+                          "company_size": {
+                            "type": "string"
+                          },
+                          "company_type": {
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": "string"
+                          },
+                          "year_founded": {
+                            "type": "integer"
+                          },
+                          "active": {
+                            "type": "boolean"
+                          },
+                          "logo": {
+                            "type": "object",
+                            "required": [
+                              "original",
+                              "medium",
+                              "small"
+                            ],
+                            "properties": {
+                              "original": {
+                                "type": "string"
+                              },
+                              "medium": {
+                                "type": "string"
+                              },
+                              "small": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "address": {
+                            "type": "string"
+                          },
+                          "latitude": {
+                            "type": "number"
+                          },
+                          "longitude": {
+                            "type": "number"
+                          },
+                          "facebook_url": {
+                            "type": "string"
+                          },
+                          "twitter_url": {
+                            "type": "string"
+                          },
+                          "github_url": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "required": [
+                    "page"
+                  ],
+                  "properties": {
+                    "page": {
+                      "type": "object",
+                      "required": [
+                        "current_page",
+                        "per_page",
+                        "total_pages",
+                        "total_items"
+                      ],
+                      "properties": {
+                        "current_page": {
+                          "type": "integer"
+                        },
+                        "per_page": {
+                          "type": "integer"
+                        },
+                        "total_pages": {
+                          "type": "integer"
+                        },
+                        "total_items": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "jobs": [
+                  {
+                    "id": 1,
+                    "employer_id": 1,
+                    "skill_id": 1,
+                    "name": "job_10",
+                    "job_type": "contract",
+                    "salary_type": "annum",
+                    "salary_currency": "USD",
+                    "salary_from": 1000,
+                    "salary_to": 2000,
+                    "description": "MyText",
+                    "offers_equity": false,
+                    "offers_visa_sponsorship": false,
+                    "active": true,
+                    "minimum_experience_level": "junior",
+                    "subskills": [
+
+                    ],
+                    "subskill_list": [
+
+                    ],
+                    "skill": {
+                      "id": 1,
+                      "name": "skill_10",
+                      "svg": null,
+                      "icon": {
+                        "original": "http://localhost:3000/assets/missing.png",
+                        "medium": "http://localhost:3000/assets/missing.png",
+                        "small": "http://localhost:3000/assets/missing.png"
+                      },
+                      "updated_at": "2018-02-26T11:26:12.069Z",
+                      "created_at": "2018-02-26T11:26:12.069Z"
+                    },
+                    "updated_at": "2018-02-26T11:26:12.071Z",
+                    "created_at": "2018-02-26T11:26:12.071Z",
+                    "application": null,
+                    "employer": {
+                      "id": 1,
+                      "name": "employer_24",
+                      "email": "employer_20@example.com",
+                      "company_size": "small",
+                      "company_type": "startup",
+                      "description": "MyText",
+                      "year_founded": 1,
+                      "active": true,
+                      "logo": {
+                        "original": "http://localhost:3000/assets/missing.png",
+                        "medium": "http://localhost:3000/assets/missing.png",
+                        "small": "http://localhost:3000/assets/missing.png"
+                      },
+                      "address": "W22ET, London",
+                      "latitude": 40.7143528,
+                      "longitude": -74.0059731,
+                      "facebook_url": "https://www.facebook.com/example",
+                      "twitter_url": "https://www.twitter.com/example",
+                      "github_url": "https://www.github.com/example",
+                      "updated_at": "2018-02-26T11:26:12.066Z",
+                      "created_at": "2018-02-26T11:26:12.066Z"
+                    }
+                  },
+                  {
+                    "id": 2,
+                    "employer_id": 2,
+                    "skill_id": 2,
+                    "name": "job_11",
+                    "job_type": "contract",
+                    "salary_type": "annum",
+                    "salary_currency": "USD",
+                    "salary_from": 1000,
+                    "salary_to": 2000,
+                    "description": "MyText",
+                    "offers_equity": false,
+                    "offers_visa_sponsorship": false,
+                    "active": true,
+                    "minimum_experience_level": "junior",
+                    "subskills": [
+
+                    ],
+                    "subskill_list": [
+
+                    ],
+                    "skill": {
+                      "id": 2,
+                      "name": "skill_11",
+                      "svg": null,
+                      "icon": {
+                        "original": "http://localhost:3000/assets/missing.png",
+                        "medium": "http://localhost:3000/assets/missing.png",
+                        "small": "http://localhost:3000/assets/missing.png"
+                      },
+                      "updated_at": "2018-02-26T11:26:12.078Z",
+                      "created_at": "2018-02-26T11:26:12.078Z"
+                    },
+                    "updated_at": "2018-02-26T11:26:12.080Z",
+                    "created_at": "2018-02-26T11:26:12.080Z",
+                    "application": null,
+                    "employer": {
+                      "id": 2,
+                      "name": "employer_25",
+                      "email": "employer_21@example.com",
+                      "company_size": "small",
+                      "company_type": "startup",
+                      "description": "MyText",
+                      "year_founded": 1,
+                      "active": true,
+                      "logo": {
+                        "original": "http://localhost:3000/assets/missing.png",
+                        "medium": "http://localhost:3000/assets/missing.png",
+                        "small": "http://localhost:3000/assets/missing.png"
+                      },
+                      "address": "W22ET, London",
+                      "latitude": 40.7143528,
+                      "longitude": -74.0059731,
+                      "facebook_url": "https://www.facebook.com/example",
+                      "twitter_url": "https://www.twitter.com/example",
+                      "github_url": "https://www.github.com/example",
+                      "updated_at": "2018-02-26T11:26:12.076Z",
+                      "created_at": "2018-02-26T11:26:12.076Z"
+                    }
+                  }
+                ],
+                "meta": {
+                  "page": {
+                    "current_page": 1,
+                    "per_page": 10,
+                    "total_pages": 1,
+                    "total_items": 2
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/jobs/{id}": {
+      "get": {
+        "summary": "Retrieves a job",
+        "tags": [
+          "Users/Jobs"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "X-Auth-Token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "X-Auth-Token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "job found",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "description": "Generated from users/jobs#show (200) with shasum 5cce9d63e839788130a688d7f512794e0e311d25",
+              "type": "object",
+              "required": [
+                "id",
+                "created_at",
+                "updated_at",
+                "employer_id",
+                "skill_id",
+                "name",
+                "job_type",
+                "salary_type",
+                "salary_currency",
+                "salary_from",
+                "salary_to",
+                "description",
+                "offers_equity",
+                "offers_visa_sponsorship",
+                "active",
+                "minimum_experience_level",
+                "subskills",
+                "subskill_list",
+                "skill",
+                "application",
+                "employer"
+              ],
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string"
+                },
+                "employer_id": {
+                  "type": "integer"
+                },
+                "skill_id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "job_type": {
+                  "type": "string"
+                },
+                "salary_type": {
+                  "type": "string"
+                },
+                "salary_currency": {
+                  "type": "string"
+                },
+                "salary_from": {
+                  "type": "integer"
+                },
+                "salary_to": {
+                  "type": "integer"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "offers_equity": {
+                  "type": "boolean"
+                },
+                "offers_visa_sponsorship": {
+                  "type": "boolean"
+                },
+                "active": {
+                  "type": "boolean"
+                },
+                "minimum_experience_level": {
+                  "type": "string"
+                },
+                "subskills": {
+                  "type": "array",
+                  "minItems": 0,
+                  "uniqueItems": true,
+                  "items": {
+                  }
+                },
+                "subskill_list": {
+                  "type": "array",
+                  "minItems": 0,
+                  "uniqueItems": true,
+                  "items": {
+                  }
+                },
+                "skill": {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "created_at",
+                    "updated_at",
+                    "name",
+                    "svg",
+                    "icon"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "created_at": {
+                      "type": "string"
+                    },
+                    "updated_at": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "svg": {
+                    },
+                    "icon": {
+                      "type": "object",
+                      "required": [
+                        "original",
+                        "medium",
+                        "small"
+                      ],
+                      "properties": {
+                        "original": {
+                          "type": "string"
+                        },
+                        "medium": {
+                          "type": "string"
+                        },
+                        "small": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "application": {
+                },
+                "employer": {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "created_at",
+                    "updated_at",
+                    "name",
+                    "email",
+                    "company_size",
+                    "company_type",
+                    "description",
+                    "year_founded",
+                    "active",
+                    "logo",
+                    "address",
+                    "latitude",
+                    "longitude",
+                    "facebook_url",
+                    "twitter_url",
+                    "github_url"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "created_at": {
+                      "type": "string"
+                    },
+                    "updated_at": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "company_size": {
+                      "type": "string"
+                    },
+                    "company_type": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "year_founded": {
+                      "type": "integer"
+                    },
+                    "active": {
+                      "type": "boolean"
+                    },
+                    "logo": {
+                      "type": "object",
+                      "required": [
+                        "original",
+                        "medium",
+                        "small"
+                      ],
+                      "properties": {
+                        "original": {
+                          "type": "string"
+                        },
+                        "medium": {
+                          "type": "string"
+                        },
+                        "small": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "address": {
+                      "type": "string"
+                    },
+                    "latitude": {
+                      "type": "number"
+                    },
+                    "longitude": {
+                      "type": "number"
+                    },
+                    "facebook_url": {
+                      "type": "string"
+                    },
+                    "twitter_url": {
+                      "type": "string"
+                    },
+                    "github_url": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "id": 1,
+                "employer_id": 1,
+                "skill_id": 1,
+                "name": "job_12",
+                "job_type": "contract",
+                "salary_type": "annum",
+                "salary_currency": "USD",
+                "salary_from": 1000,
+                "salary_to": 2000,
+                "description": "MyText",
+                "offers_equity": false,
+                "offers_visa_sponsorship": false,
+                "active": true,
+                "minimum_experience_level": "junior",
+                "subskills": [
+
+                ],
+                "subskill_list": [
+
+                ],
+                "skill": {
+                  "id": 1,
+                  "name": "skill_12",
+                  "svg": null,
+                  "icon": {
+                    "original": "http://localhost:3000/assets/missing.png",
+                    "medium": "http://localhost:3000/assets/missing.png",
+                    "small": "http://localhost:3000/assets/missing.png"
+                  },
+                  "updated_at": "2018-02-26T11:26:12.129Z",
+                  "created_at": "2018-02-26T11:26:12.129Z"
+                },
+                "updated_at": "2018-02-26T11:26:12.131Z",
+                "created_at": "2018-02-26T11:26:12.131Z",
+                "application": null,
+                "employer": {
+                  "id": 1,
+                  "name": "employer_26",
+                  "email": "employer_22@example.com",
+                  "company_size": "small",
+                  "company_type": "startup",
+                  "description": "MyText",
+                  "year_founded": 1,
+                  "active": true,
+                  "logo": {
+                    "original": "http://localhost:3000/assets/missing.png",
+                    "medium": "http://localhost:3000/assets/missing.png",
+                    "small": "http://localhost:3000/assets/missing.png"
+                  },
+                  "address": "W22ET, London",
+                  "latitude": 40.7143528,
+                  "longitude": -74.0059731,
+                  "facebook_url": "https://www.facebook.com/example",
+                  "twitter_url": "https://www.twitter.com/example",
+                  "github_url": "https://www.github.com/example",
+                  "updated_at": "2018-02-26T11:26:12.126Z",
+                  "created_at": "2018-02-26T11:26:12.126Z"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "job not found",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "description": "Generated from users#create (422) with shasum 41a840a264cfbaf17585e2a31abf7a312fa76ca1",
+              "type": "object",
+              "required": [
+                "errors",
+                "meta"
+              ],
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "title",
+                      "detail",
+                      "source"
+                    ],
+                    "properties": {
+                      "title": {
+                        "type": "string",
+                        "x-nullable": true,
+                        "nullable": true
+                      },
+                      "detail": {
+                        "type": "string"
+                      },
+                      "source": {
+                        "type": "string",
+                        "x-nullable": true,
+                        "nullable": true
+                      }
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "required": [
+                    "status",
+                    "message",
+                    "code"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "title": "",
+                    "detail": "Couldn't find Job with 'id'=43535345",
+                    "source": null
+                  }
+                ],
+                "meta": {
+                  "status": 404,
+                  "message": "Not Found",
+                  "code": "not_found"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/sessions": {
+      "post": {
+        "summary": "Creates a session",
+        "tags": [
+          "Users/Sessions"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "session",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "email",
+                "password"
+              ]
+            }
+          },
+          {
+            "name": "X-Auth-Token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "X-Auth-Token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "session created",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "description": "Generated from users/sessions#create (200) with shasum e0257c97e01c6619ec96ae7c9d965cb7410f6152",
+              "type": "object",
+              "required": [
+                "id",
+                "created_at",
+                "updated_at",
+                "email",
+                "name",
+                "description",
+                "phone",
+                "job_preference",
+                "active",
+                "address",
+                "latitude",
+                "longitude",
+                "avatar",
+                "api_token"
+              ],
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                },
+                "phone": {
+                },
+                "job_preference": {
+                  "type": "string"
+                },
+                "active": {
+                  "type": "boolean"
+                },
+                "address": {
+                },
+                "latitude": {
+                },
+                "longitude": {
+                },
+                "avatar": {
+                  "type": "object",
+                  "required": [
+                    "original",
+                    "medium",
+                    "small"
+                  ],
+                  "properties": {
+                    "original": {
+                      "type": "string"
+                    },
+                    "medium": {
+                      "type": "string"
+                    },
+                    "small": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "api_token": {
+                  "type": "string"
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "id": 1,
+                "email": "foo@bar.com",
+                "name": "user_18",
+                "description": null,
+                "phone": null,
+                "job_preference": "permanent",
+                "active": true,
+                "address": null,
+                "latitude": null,
+                "longitude": null,
+                "avatar": {
+                  "original": "http://localhost:3000/assets/missing.png",
+                  "medium": "http://localhost:3000/assets/missing.png",
+                  "small": "http://localhost:3000/assets/missing.png"
+                },
+                "updated_at": "2018-02-26T11:26:12.176Z",
+                "created_at": "2018-02-26T11:26:12.168Z",
+                "api_token": "x6aQs9bEGiSGY6RIYw20aQ"
+              }
+            }
+          },
+          "404": {
+            "description": "no such user",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "description": "Generated from users#create (422) with shasum 41a840a264cfbaf17585e2a31abf7a312fa76ca1",
+              "type": "object",
+              "required": [
+                "errors",
+                "meta"
+              ],
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "title",
+                      "detail",
+                      "source"
+                    ],
+                    "properties": {
+                      "title": {
+                        "type": "string",
+                        "x-nullable": true,
+                        "nullable": true
+                      },
+                      "detail": {
+                        "type": "string"
+                      },
+                      "source": {
+                        "type": "string",
+                        "x-nullable": true,
+                        "nullable": true
+                      }
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "required": [
+                    "status",
+                    "message",
+                    "code"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "title": "",
+                    "detail": "NOT FOUND",
+                    "source": null
+                  }
+                ],
+                "meta": {
+                  "status": 404,
+                  "message": "Not Found",
+                  "code": "not_found"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "Retrieves a session",
+        "tags": [
+          "Users/Sessions"
+        ],
+        "responses": {
+          "200": {
+            "description": "session found",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "description": "Generated from users/sessions#show (200) with shasum a8781af088c2d9392e30a9eebd688fe0f82abc4d",
+              "type": "object",
+              "required": [
+                "id",
+                "created_at",
+                "updated_at",
+                "email",
+                "name",
+                "description",
+                "phone",
+                "job_preference",
+                "active",
+                "address",
+                "latitude",
+                "longitude",
+                "avatar",
+                "api_token"
+              ],
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                },
+                "phone": {
+                },
+                "job_preference": {
+                  "type": "string"
+                },
+                "active": {
+                  "type": "boolean"
+                },
+                "address": {
+                },
+                "latitude": {
+                },
+                "longitude": {
+                },
+                "avatar": {
+                  "type": "object",
+                  "required": [
+                    "original",
+                    "medium",
+                    "small"
+                  ],
+                  "properties": {
+                    "original": {
+                      "type": "string"
+                    },
+                    "medium": {
+                      "type": "string"
+                    },
+                    "small": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "api_token": {
+                  "type": "string"
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "id": 1,
+                "email": "foo@bar.com",
+                "name": "user_20",
+                "description": null,
+                "phone": null,
+                "job_preference": "permanent",
+                "active": true,
+                "address": null,
+                "latitude": null,
+                "longitude": null,
+                "avatar": {
+                  "original": "http://localhost:3000/assets/missing.png",
+                  "medium": "http://localhost:3000/assets/missing.png",
+                  "small": "http://localhost:3000/assets/missing.png"
+                },
+                "updated_at": "2018-02-26T11:26:12.197Z",
+                "created_at": "2018-02-26T11:26:12.197Z",
+                "api_token": "Ph9zjG50lt18JbvHxLHvvA"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deletes a session",
+        "tags": [
+          "Users/Sessions"
+        ],
+        "responses": {
+          "200": {
+            "description": "session destroyed",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "description": "Generated from users/sessions#destroy (200) with shasum bf21a9e8fbc5a3846fb05b4fa0859e0917b2202f",
+              "type": "object",
+              "properties": {
+              }
+            },
+            "examples": {
+              "application/json": {
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/users": {
+      "post": {
+        "summary": "Creates a user",
+        "tags": [
+          "Users/Users"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "phone": {
+                  "type": "string"
+                },
+                "job_preference": {
+                  "type": "string"
+                },
+                "active": {
+                  "type": "boolean"
+                },
+                "address": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "email",
+                "password"
+              ]
+            }
+          },
+          {
+            "name": "X-Auth-Token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "X-Auth-Token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "user created",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "description": "Generated from users/users#create (200) with shasum e293a3f0c1a8faf66d530a90fe4ce126a5404738",
+              "type": "object",
+              "required": [
+                "id",
+                "created_at",
+                "updated_at",
+                "email",
+                "name",
+                "description",
+                "phone",
+                "job_preference",
+                "active",
+                "address",
+                "latitude",
+                "longitude",
+                "avatar",
+                "api_token"
+              ],
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string",
+                  "x-nullable": true,
+                  "nullable": true
+                },
+                "phone": {
+                  "type": "string",
+                  "x-nullable": true,
+                  "nullable": true
+                },
+                "job_preference": {
+                  "type": "string"
+                },
+                "active": {
+                  "type": "boolean"
+                },
+                "address": {
+                  "type": "string",
+                  "x-nullable": true,
+                  "nullable": true
+                },
+                "latitude": {
+                },
+                "longitude": {
+                },
+                "avatar": {
+                  "type": "object",
+                  "required": [
+                    "original",
+                    "medium",
+                    "small"
+                  ],
+                  "properties": {
+                    "original": {
+                      "type": "string"
+                    },
+                    "medium": {
+                      "type": "string"
+                    },
+                    "small": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "api_token": {
+                  "type": "string"
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "id": 2,
+                "email": "foo@bar.com",
+                "name": "yolo",
+                "description": null,
+                "phone": null,
+                "job_preference": "permanent",
+                "active": true,
+                "address": null,
+                "latitude": null,
+                "longitude": null,
+                "avatar": {
+                  "original": "http://localhost:3000/assets/missing.png",
+                  "medium": "http://localhost:3000/assets/missing.png",
+                  "small": "http://localhost:3000/assets/missing.png"
+                },
+                "updated_at": "2018-02-26T11:26:12.230Z",
+                "created_at": "2018-02-26T11:26:12.230Z",
+                "api_token": "NOpZDxnUYiX2Qp3V7VvGuQ"
+              }
+            }
+          },
+          "422": {
+            "description": "invalid request",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "description": "Generated from users#create (422) with shasum 41a840a264cfbaf17585e2a31abf7a312fa76ca1",
+              "type": "object",
+              "required": [
+                "errors",
+                "meta"
+              ],
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "title",
+                      "detail",
+                      "source"
+                    ],
+                    "properties": {
+                      "title": {
+                        "type": "string",
+                        "x-nullable": true,
+                        "nullable": true
+                      },
+                      "detail": {
+                        "type": "string"
+                      },
+                      "source": {
+                        "type": "string",
+                        "x-nullable": true,
+                        "nullable": true
+                      }
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "required": [
+                    "status",
+                    "message",
+                    "code"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "title": "",
+                    "detail": "Password can't be blank",
+                    "source": "password"
+                  },
+                  {
+                    "title": "",
+                    "detail": "Email can't be blank",
+                    "source": "email"
+                  },
+                  {
+                    "title": "",
+                    "detail": "Name can't be blank",
+                    "source": "name"
+                  }
+                ],
+                "meta": {
+                  "status": 422,
+                  "message": "Unprocessable Entity",
+                  "code": "processing_error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/users/{id}": {
+      "get": {
+        "summary": "Retrieves a user",
+        "tags": [
+          "Users/Users"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "X-Auth-Token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "X-Auth-Token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "user found",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "description": "Generated from users/users#show (200) with shasum 9b5ebb345b80df3242d14c0cb45aa338ded4f9e4",
+              "type": "object",
+              "required": [
+                "id",
+                "created_at",
+                "updated_at",
+                "email",
+                "name",
+                "description",
+                "phone",
+                "job_preference",
+                "active",
+                "address",
+                "latitude",
+                "longitude",
+                "avatar"
+              ],
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string",
+                  "x-nullable": true,
+                  "nullable": true
+                },
+                "phone": {
+                  "type": "string",
+                  "x-nullable": true,
+                  "nullable": true
+                },
+                "job_preference": {
+                  "type": "string"
+                },
+                "active": {
+                  "type": "boolean"
+                },
+                "address": {
+                  "type": "string",
+                  "x-nullable": true,
+                  "nullable": true
+                },
+                "latitude": {
+                },
+                "longitude": {
+                },
+                "avatar": {
+                  "type": "object",
+                  "required": [
+                    "original",
+                    "medium",
+                    "small"
+                  ],
+                  "properties": {
+                    "original": {
+                      "type": "string"
+                    },
+                    "medium": {
+                      "type": "string"
+                    },
+                    "small": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "id": 1,
+                "email": "user_20@example.com",
+                "name": "user_24",
+                "description": null,
+                "phone": null,
+                "job_preference": "permanent",
+                "active": true,
+                "address": null,
+                "latitude": null,
+                "longitude": null,
+                "avatar": {
+                  "original": "http://localhost:3000/assets/missing.png",
+                  "medium": "http://localhost:3000/assets/missing.png",
+                  "small": "http://localhost:3000/assets/missing.png"
+                },
+                "updated_at": "2018-02-26T11:26:12.253Z",
+                "created_at": "2018-02-26T11:26:12.253Z"
+              }
+            }
+          },
+          "404": {
+            "description": "user not found",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "description": "Generated from users#create (422) with shasum 41a840a264cfbaf17585e2a31abf7a312fa76ca1",
+              "type": "object",
+              "required": [
+                "errors",
+                "meta"
+              ],
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "title",
+                      "detail",
+                      "source"
+                    ],
+                    "properties": {
+                      "title": {
+                        "type": "string",
+                        "x-nullable": true,
+                        "nullable": true
+                      },
+                      "detail": {
+                        "type": "string"
+                      },
+                      "source": {
+                        "type": "string",
+                        "x-nullable": true,
+                        "nullable": true
+                      }
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "required": [
+                    "status",
+                    "message",
+                    "code"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "title": "",
+                    "detail": "Couldn't find User with 'id'=43535345",
+                    "source": null
+                  }
+                ],
+                "meta": {
+                  "status": 404,
+                  "message": "Not Found",
+                  "code": "not_found"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "Updates a user",
+        "tags": [
+          "Users/Users"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "user",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "phone": {
+                  "type": "string"
+                },
+                "job_preference": {
+                  "type": "string"
+                },
+                "active": {
+                  "type": "boolean"
+                },
+                "address": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                }
+              },
+              "required": [
+
+              ]
+            }
+          },
+          {
+            "name": "X-Auth-Token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "X-Auth-Token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "user updated",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "description": "Generated from users/users#update (200) with shasum fe91549148f5d0c5921be8cb388fd1940bf8dcca",
+              "type": "object",
+              "required": [
+                "id",
+                "created_at",
+                "updated_at",
+                "email",
+                "name",
+                "description",
+                "phone",
+                "job_preference",
+                "active",
+                "address",
+                "latitude",
+                "longitude",
+                "avatar",
+                "api_token"
+              ],
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string",
+                  "x-nullable": true,
+                  "nullable": true
+                },
+                "phone": {
+                  "type": "string",
+                  "x-nullable": true,
+                  "nullable": true
+                },
+                "job_preference": {
+                  "type": "string"
+                },
+                "active": {
+                  "type": "boolean"
+                },
+                "address": {
+                  "type": "string",
+                  "x-nullable": true,
+                  "nullable": true
+                },
+                "latitude": {
+                  "type": "number",
+                  "x-nullable": true,
+                  "nullable": true
+                },
+                "longitude": {
+                  "type": "number",
+                  "x-nullable": true,
+                  "nullable": true
+                },
+                "avatar": {
+                  "type": "object",
+                  "required": [
+                    "original",
+                    "medium",
+                    "small"
+                  ],
+                  "properties": {
+                    "original": {
+                      "type": "string"
+                    },
+                    "medium": {
+                      "type": "string"
+                    },
+                    "small": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "api_token": {
+                  "type": "string"
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "id": 1,
+                "email": "user_22@example.com",
+                "name": "foobar",
+                "description": null,
+                "phone": null,
+                "job_preference": "permanent",
+                "active": true,
+                "address": null,
+                "latitude": null,
+                "longitude": null,
+                "avatar": {
+                  "original": "http://localhost:3000/assets/missing.png",
+                  "medium": "http://localhost:3000/assets/missing.png",
+                  "small": "http://localhost:3000/assets/missing.png"
+                },
+                "updated_at": "2018-02-26T11:26:12.281Z",
+                "created_at": "2018-02-26T11:26:12.275Z",
+                "api_token": "N4TlbqdUFiglvJrfItCUEQ"
+              }
+            }
+          },
+          "404": {
+            "description": "user not found",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "description": "Generated from users#create (422) with shasum 41a840a264cfbaf17585e2a31abf7a312fa76ca1",
+              "type": "object",
+              "required": [
+                "errors",
+                "meta"
+              ],
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "title",
+                      "detail",
+                      "source"
+                    ],
+                    "properties": {
+                      "title": {
+                        "type": "string",
+                        "x-nullable": true,
+                        "nullable": true
+                      },
+                      "detail": {
+                        "type": "string"
+                      },
+                      "source": {
+                        "type": "string",
+                        "x-nullable": true,
+                        "nullable": true
+                      }
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "required": [
+                    "status",
+                    "message",
+                    "code"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "title": "",
+                    "detail": "Couldn't find User with 'id'=34343434",
+                    "source": null
+                  }
+                ],
+                "meta": {
+                  "status": 404,
+                  "message": "Not Found",
+                  "code": "not_found"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "apiToken": {
+      "type": "apiKey",
+      "name": "X-Auth-Token",
+      "in": "header"
+    }
+  },
+  "security": [
+    {
+      "apiToken": [
+
+      ]
+    }
+  ]
+}
