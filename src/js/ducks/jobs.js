@@ -47,10 +47,10 @@ export const fetchJobsRequest = () => {
   };
 };
 
-export const fetchJobsSuccess = payload => {
+export const fetchJobsSuccess = ({ jobType, list }) => {
   return {
     type: FETCH_JOBS_SUCCESS,
-    payload
+    payload: { jobType, list }
   };
 };
 

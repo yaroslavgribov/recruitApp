@@ -4,7 +4,7 @@ import { Route, NavLink } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 
-import Dashboard from './Dashboard';
+import Dashboard from '../components/Dashboard';
 import Jobs from './Jobs';
 
 class User extends Component {

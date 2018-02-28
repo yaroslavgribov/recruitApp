@@ -1,1 +1,2 @@
-export const API_TOKEN_KEY = 'api_token';
+export const apiTokenKey = 'api_token';
+export const roleKey = 'user_role';

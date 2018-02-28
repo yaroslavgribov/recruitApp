@@ -7,7 +7,9 @@ import { connect } from 'react-redux';
 
 import Dropdown from './Dropdown';
 
-const Header = ({ isAuthenticated, session, logIn, logOut, signIn }) => {
+import { logOut } from '../ducks/user';
+
+const Header = ({ isAuthenticated, session, logOut }) => {
   const name = session && session.name;
 
   return (
@@ -52,4 +54,6 @@ Header.propTypes = {
 export default connect(({ user }) => ({
   isAuthenticated: !!user.session,
   session: user.session
-}))(Header);
+}), {
+  logOut
+})(Header);

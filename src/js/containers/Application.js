@@ -4,12 +4,16 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import Header from '../components/Header';
-import SignIn from './SignIn';
+
 import User from './User';
+import Employer from './Employer';
+
+import SignIn from './SignIn';
 import Login from './Login';
 
-import { retrieveToken, setTokenHeaders } from '../utils';
+import { retrieveToken, retrieveRole } from '../utils';
 import { retrieveSession } from '../ducks/user';
+import { roles } from '../constants/userRoles';
 
 class Application extends Component {
   state = {
@@ -19,28 +23,34 @@ class Application extends Component {
 
   componentDidMount() {
     const token = retrieveToken();
+    const role = retrieveRole();
 
     if (token) {
-      setTokenHeaders();
-      this.props.retrieveSession(token);
+      this.props.retrieveSession(role, token);
     }
   }
 
   render() {
-    const { isAuthenticated } = this.props;
+    const { isAuthenticated, role } = this.props;
 
     return (
       <Router>
         <main>
-          <Header
-            logIn={this.logIn}
-            logOut={this.logOut}
-          />
-          <Route
-            path="/login"
-            render={props => <Login logIn={this.logIn} {...props} />}
-          />
+          <Header />
+          <Route path="/login" render={props => <Login {...props} />} />
           <Route path="/signin" component={SignIn} />
+
+          <Route
+            path="/employer"
+            render={props =>
+              isAuthenticated ? (
+                <Employer {...props} />
+              ) : (
+                <Redirect to="/login" />
+              )
+            }
+          />
+
           <Route
             path="/user"
             render={props =>
@@ -51,21 +61,21 @@ class Application extends Component {
               )
             }
           />
+
           <Route
             exact
             path="/"
-            render={props =>
-              isAuthenticated ? (
-                <Redirect to="/user" />
-              ) : (
-                <Redirect
-                  to={{
-                    pathname: '/login',
-                    state: { from: props.location }
-                  }}
-                />
-              )
-            }
+            render={props => {
+              if (isAuthenticated) {
+                if (role === roles.user) {
+                  return <Redirect to="/user" />;
+                } else {
+                  return <Redirect to="/employer" />;
+                }
+              }
+
+              return <Redirect to="/login" />;
+            }}
           />
         </main>
       </Router>
@@ -75,7 +85,8 @@ class Application extends Component {
 
 export default connect(
   ({ user }) => ({
-    isAuthenticated: !!user.session
+    isAuthenticated: !!user.session,
+    role: user.role
   }),
   {
     retrieveSession

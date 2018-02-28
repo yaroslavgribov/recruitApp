@@ -1,15 +1,27 @@
 import axios from 'axios';
 
-import { API_TOKEN_KEY } from './constants/session';
+import { apiTokenKey, roleKey } from './constants/session';
 
-export const saveToken = token => {
-  localStorage.setItem(API_TOKEN_KEY, token);
+const saveToStorage = key => value => {
+  localStorage.setItem(key, value);
 };
 
-export const retrieveToken = () => {
-  return localStorage.getItem(API_TOKEN_KEY);
+const getFromStorage = key => () => {
+  return localStorage.getItem(key);
 };
 
-export const setTokenHeaders = () => {
-  axios.defaults.headers.common['X-Auth-Token'] = retrieveToken();
+const deleteFromStorage = key => () => {
+  localStorage.removeItem(key);
+};
+
+export const saveToken = saveToStorage(apiTokenKey);
+export const retrieveToken = getFromStorage(apiTokenKey);
+export const deleteToken = deleteFromStorage(apiTokenKey);
+
+export const saveRole = saveToStorage(roleKey);
+export const retrieveRole = getFromStorage(roleKey);
+export const deleteRole = deleteFromStorage(roleKey);
+
+export const setTokenHeaders = token => {
+  axios.defaults.headers.common['X-Auth-Token'] = token;
 };

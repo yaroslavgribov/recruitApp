@@ -32,8 +32,15 @@ class JobApplications extends Component {
 
   render() {
     const { applications } = this.props;
-    
-    const availableJobs = !!applications && applications.filter(job => job.application.state !== 'withdrawn');
+
+    const availableJobs =
+      !!applications &&
+      applications.filter(job => {
+        return (
+          job.application.state !== 'withdrawn' &&
+          job.application.state !== 'rejected'
+        );
+      });
 
     return (
       <Fragment>
