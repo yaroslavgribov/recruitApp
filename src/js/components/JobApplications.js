@@ -5,31 +5,39 @@ import { connect } from 'react-redux';
 import JobListing from './JobList';
 import Job from './Job';
 
-import { fetchJobs, requestApplication } from '../ducks/jobs';
+import { fetchJobs, cancelApplication } from '../ducks/jobs';
 
 import { jobTypes } from '../constants/jobTypes';
 
-class JobOpenings extends Component {
+class JobApplications extends Component {
   componentDidMount() {
-    this.props.fetchJobs(jobTypes.openings);
+    this.props.fetchJobs(jobTypes.applications);
   }
+
+  cancelProposal = job => {
+    this.props.cancelApplication(job.application.id);
+  };
 
   renderButton = () => job => {
     return (
-      <button onClick={() => this.props.requestApplication(job.id)}>
-        Apply
+      <button
+        onClick={() => {
+          this.cancelProposal(job);
+        }}
+      >
+        Cancel
       </button>
     );
   };
 
   render() {
-    const { openings } = this.props;
-
-    const availableJobs = !!openings && openings.filter(job => !job.application || job.application.state === 'withdrawn');
+    const { applications } = this.props;
+    
+    const availableJobs = !!applications && applications.filter(job => job.application.state !== 'withdrawn');
 
     return (
       <Fragment>
-        {openings ? (
+        {applications ? (
           <JobListing
             jobList={availableJobs}
             renderButton={this.renderButton()}
@@ -44,10 +52,10 @@ class JobOpenings extends Component {
 
 export default connect(
   ({ jobs }) => ({
-    openings: jobs.openings
+    applications: jobs.applications
   }),
   {
     fetchJobs,
-    requestApplication
+    cancelApplication
   }
-)(JobOpenings);
+)(JobApplications);

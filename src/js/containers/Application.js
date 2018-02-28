@@ -33,7 +33,6 @@ class Application extends Component {
       <Router>
         <main>
           <Header
-            username={this.state.username}
             logIn={this.logIn}
             logOut={this.logOut}
           />

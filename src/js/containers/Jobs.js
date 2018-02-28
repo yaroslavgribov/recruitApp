@@ -3,6 +3,7 @@ import { Route, NavLink } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import JobOpenings from '../components/JobOpenings';
+import JobApplications from '../components/JobApplications';
 
 class Jobs extends PureComponent {
   render() {
@@ -20,7 +21,9 @@ class Jobs extends PureComponent {
         </nav>
         <Route
           path={`${match.url}/applied`}
-          render={() => <h2> Applied Jobs </h2>}
+          render={props => 
+            <JobApplications {...props} />
+          }
         />
         <Route exact path={match.url} render={() => <JobOpenings />} />
       </div>
@@ -28,4 +31,14 @@ class Jobs extends PureComponent {
   }
 }
 
-export default connect()(Jobs);
+export default connect(
+  // ({ jobs }) => ({
+  //   openings: jobs.openings,
+  //   applications: jobs.applications
+  // }),
+  // {
+  //   fetchJobs,
+  //   requestApplication,
+  //   cancelApplication
+  // }
+)(Jobs);

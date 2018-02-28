@@ -3,9 +3,13 @@ import PropTypes from 'prop-types';
 
 import { Link } from 'react-router-dom';
 
+import { connect } from 'react-redux';
+
 import Dropdown from './Dropdown';
 
-const Header = ({ username, logIn, logOut, signIn }) => {
+const Header = ({ isAuthenticated, session, logIn, logOut, signIn }) => {
+  const name = session && session.name;
+
   return (
     <header className="header">
       <section className="inner">
@@ -14,15 +18,24 @@ const Header = ({ username, logIn, logOut, signIn }) => {
             RecruitApp
           </Link>
           <section className="actions">
-            <Link to="/signin">Sign In</Link>
-          
-            {username ? (
-              <Dropdown label={username}>
-                <button className="">Settings</button>
-                <button className="" onClick={logOut}>Log Out</button>
+
+            {isAuthenticated ? (
+              <Dropdown label={name}>
+                <Link to="/user/settings">
+                  Settings
+                </Link>
+                <button className="link" onClick={logOut}>
+                  Log Out
+                </button>
               </Dropdown>
             ) : (
-              <button type="button" onClick={logIn}>LogIn</button>
+              <div>
+                <Link to="/signin">Sign In</Link>
+                
+                <Link to="/login">
+                  LogIn
+                </Link>
+              </div>
             )}
           </section>
         </section>
@@ -32,7 +45,11 @@ const Header = ({ username, logIn, logOut, signIn }) => {
 };
 
 Header.propTypes = {
-  username: PropTypes.string
+  name: PropTypes.string,
+  isAuthenticated: PropTypes.bool
 };
 
-export default Header;
+export default connect(({ user }) => ({
+  isAuthenticated: !!user.session,
+  session: user.session
+}))(Header);
