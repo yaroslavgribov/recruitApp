@@ -12,13 +12,17 @@ class Dropdown extends PureComponent {
   };
 
   render() {
-    const { label, children } = this.props;
+    const { label, children, renderControl } = this.props;
     const { expanded } = this.state;
 
     return (
       <div className="dropdown">
-        <button type="button" onClick={this.handleClick}>
-          {label}
+        <button
+          className="button button-link"
+          type="button"
+          onClick={this.handleClick}
+        >
+          {renderControl()}
         </button>
         {expanded && <div className="dropdown-content">{children}</div>}
       </div>

@@ -2,6 +2,46 @@
   display flex
   flex-direction row
   justify-content space-between
+  align-items center
+
+  padding spacing-large
+  margin-left -(spacing-large)
+  margin-right -(spacing-large)
+
+  border-top 0
+
+  & + .job 
+    border-top solid 1px color-text
+
+  &-name
+    font-size font-size-large
+    margin-top 0
+    margin-bottom spacing
+
+    small 
+      display block 
+      margin-top spacing
 
   &-content 
     flex 0 0 60%
+
+  &-actions
+    align-self flex-start 
+
+.skills-list
+  display flex
+  flex-direction row
+
+  .skill 
+    padding spacing-small
+    margin 0
+    border-radius 3px
+    background lighten(color-text, 50%)
+
+    & + .skill 
+      margin-left spacing-small
+
+  .note
+    padding spacing-small
+    margin 0
+    color color-action

@@ -1,5 +1,8 @@
 .navigation 
-  padding spacing-large 0
+  padding spacing-large
+  margin-left -(spacing-large)
+  margin-right -(spacing-large)
+
   background white
   border-bottom solid 1px color-text
 
@@ -7,8 +10,17 @@ nav
   a
     color color-text
     text-decoration none
+
+    &:hover
+      color color-primary
+      text-decoration none
+
     &.active
       color color-primary
-      text-decoration underline
+      
+      text-decoration none
     & + a 
-     margin-left: spacing-large
+     margin-left spacing-large
+
+    i
+      margin-right 3px

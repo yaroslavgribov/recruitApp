@@ -1,0 +1,32 @@
+.button 
+  display block
+  padding spacing
+  appearance none
+
+  border none
+
+  cursor pointer
+
+  &-primary 
+    padding spacing
+    min-width 20rem
+    background-color color-primary
+
+    color white
+
+    &:hover
+      background-color darken(color-primary, 30%)
+
+  &-action 
+    padding spacing-small spacing
+    min-width 15rem
+    background-color color-action
+    color white
+    
+    &:hover
+      background-color darken(color-action, 30%)
+
+  &-link
+    background transparent
+    color white
+    outline 0

@@ -10,20 +10,20 @@ class Jobs extends PureComponent {
     const { match } = this.props;
 
     return (
-      <div className="inner container">
-        <nav>
-          <NavLink exact to={`${match.url}`} activeClassName="active">
-            Openings
-          </NavLink>
-          <NavLink to={`${match.url}/applied`} activeClassName="active">
-            Applied
-          </NavLink>
-        </nav>
+      <div className="container inner">
+        <header className="navigation">
+          <nav>
+            <NavLink exact to={`${match.url}`} activeClassName="active">
+              Openings
+            </NavLink>
+            <NavLink to={`${match.url}/applied`} activeClassName="active">
+              Applied
+            </NavLink>
+          </nav>
+        </header>
         <Route
           path={`${match.url}/applied`}
-          render={props => 
-            <JobApplications {...props} />
-          }
+          render={props => <JobApplications {...props} />}
         />
         <Route exact path={match.url} render={() => <JobOpenings />} />
       </div>
@@ -31,14 +31,13 @@ class Jobs extends PureComponent {
   }
 }
 
-export default connect(
-  // ({ jobs }) => ({
-  //   openings: jobs.openings,
-  //   applications: jobs.applications
-  // }),
-  // {
-  //   fetchJobs,
-  //   requestApplication,
-  //   cancelApplication
-  // }
-)(Jobs);
+export default connect()(Jobs);
+// ({ jobs }) => ({
+//   openings: jobs.openings,
+//   applications: jobs.applications
+// }),
+// {
+//   fetchJobs,
+//   requestApplication,
+//   cancelApplication
+// }

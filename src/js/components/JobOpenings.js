@@ -16,7 +16,10 @@ class JobOpenings extends Component {
 
   renderButton = () => job => {
     return (
-      <button onClick={() => this.props.requestApplication(job.id)}>
+      <button
+        className="button button-action"
+        onClick={() => this.props.requestApplication(job.id)}
+      >
         Apply
       </button>
     );
@@ -25,7 +28,11 @@ class JobOpenings extends Component {
   render() {
     const { openings } = this.props;
 
-    const availableJobs = !!openings && openings.filter(job => !job.application || job.application.state === 'withdrawn');
+    const availableJobs =
+      !!openings &&
+      openings.filter(
+        job => !job.application || job.application.state === 'withdrawn'
+      );
 
     return (
       <Fragment>

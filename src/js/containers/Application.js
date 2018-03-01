@@ -8,7 +8,7 @@ import Header from '../components/Header';
 import User from './User';
 import Employer from './Employer';
 
-import SignIn from './SignIn';
+import SignUp from './SignUp';
 import Login from './Login';
 
 import { retrieveToken, retrieveRole } from '../utils';
@@ -31,14 +31,18 @@ class Application extends Component {
   }
 
   render() {
-    const { isAuthenticated, role } = this.props;
+    const { isAuthenticated, role, session } = this.props;
 
     return (
       <Router>
         <main>
-          <Header />
+          <Header
+            isAuthenticated={isAuthenticated}
+            session={session}
+            role={role}
+          />
           <Route path="/login" render={props => <Login {...props} />} />
-          <Route path="/signin" component={SignIn} />
+          <Route path="/signup" component={SignUp} />
 
           <Route
             path="/employer"
@@ -46,7 +50,12 @@ class Application extends Component {
               isAuthenticated ? (
                 <Employer {...props} />
               ) : (
-                <Redirect to="/login" />
+                <Redirect
+                  to={{
+                    pathname: '/login',
+                    state: { from: props.location }
+                  }}
+                />
               )
             }
           />
@@ -57,7 +66,12 @@ class Application extends Component {
               isAuthenticated ? (
                 <User {...props} />
               ) : (
-                <Redirect to="/login" />
+                <Redirect
+                  to={{
+                    pathname: '/login',
+                    state: { from: props.location }
+                  }}
+                />
               )
             }
           />
@@ -74,7 +88,14 @@ class Application extends Component {
                 }
               }
 
-              return <Redirect to="/login" />;
+              return (
+                <Redirect
+                  to={{
+                    pathname: '/login',
+                    state: { from: props.location }
+                  }}
+                />
+              );
             }}
           />
         </main>
@@ -86,6 +107,7 @@ class Application extends Component {
 export default connect(
   ({ user }) => ({
     isAuthenticated: !!user.session,
+    session: user.session,
     role: user.role
   }),
   {

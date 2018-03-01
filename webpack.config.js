@@ -4,7 +4,6 @@ const autoprefixer = require('autoprefixer');
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   target: 'web',
@@ -52,7 +51,7 @@ module.exports = {
       },
       {
         test: /\.(jpe|jpg|woff|woff2|eot|ttf|svg|png)(\?.*$|$)/,
-        use: [{ loader: 'ignore-loader' }]
+        loader: 'url-loader'
       }
     ]
   },
@@ -65,19 +64,16 @@ module.exports = {
     errorDetails: false
   },
   plugins: [
-    new webpack.DefinePlugin({
-    }),
     new HtmlWebpackPlugin({
       inject: true,
       template: path.join(__dirname, 'public/index.html'),
-      favicon: path.join(__dirname, 'public/favicon.ico'),
+      favicon: path.join(__dirname, 'public/favicon.ico')
     }),
     new ExtractTextPlugin({
       filename: '[name].css'
     }),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.IgnorePlugin(/\.(jpe|jpg|woff|woff2|eot|ttf|svg|png)(\?.*$|$)/),
     new webpack.HotModuleReplacementPlugin()
   ],
   devServer: {

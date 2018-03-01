@@ -21,11 +21,12 @@ class Applicants extends Component {
                 {request.user.name}
                 <button
                   type="button"
+                  className="button button-action"
                   onClick={() => {
                     this.props.rejectInterview(request.id);
                   }}
                 >
-                  reject
+                  Reject
                 </button>
               </p>
             );

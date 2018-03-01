@@ -4,5 +4,21 @@
   &-content 
     position absolute
     top 100%
+    right 0
     width 20rem
     background-color white
+    border-radius 3px
+    border solid 1px color-text
+
+    box-shadow 0px 2px 5px 3px rgba(0, 0, 0, 0.2)
+    
+    .button
+      color black
+
+      &:hover
+        text-decoration none 
+        color color-primary
+      
+      & + .button
+        border-top solid 1px black
+

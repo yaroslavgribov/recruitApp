@@ -21,6 +21,7 @@ class JobApplications extends Component {
   renderButton = () => job => {
     return (
       <button
+        className="button button-action"
         onClick={() => {
           this.cancelProposal(job);
         }}

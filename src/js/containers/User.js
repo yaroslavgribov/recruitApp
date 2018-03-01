@@ -15,10 +15,10 @@ class User extends Component {
         <header className="navigation">
           <nav className="inner">
             <NavLink exact to={match.url} activeClassName="active">
-              Dashboard
+              <i className="icon-grid" /> Dashboard
             </NavLink>
             <NavLink to={`${match.url}/jobs`} activeClassName="active">
-              Jobs
+              <i className="icon-briefcase" /> Jobs
             </NavLink>
           </nav>
         </header>

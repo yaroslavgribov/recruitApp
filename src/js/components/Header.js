@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import { Link } from 'react-router-dom';
@@ -19,25 +19,41 @@ const Header = ({ isAuthenticated, session, logOut }) => {
           <Link to="/" className="main-logo">
             RecruitApp
           </Link>
-          <section className="actions">
-
+          <section className="main-nav-actions">
             {isAuthenticated ? (
-              <Dropdown label={name}>
-                <Link to="/user/settings">
-                  Settings
+              <Dropdown
+                renderControl={() => (
+                  <Fragment>
+                    {!session.avatar.small.includes('missing') && (
+                      <img className="user-image" src={session.avatar.small} />
+                    )}
+                    <span className="user-name">{session.name}</span>
+                    <i className="icon-chevron-down" />
+                  </Fragment>
+                )}
+              >
+                <Link className="button button-link" to="/user/settings">
+                  <i className="icon-settings" /> Settings
                 </Link>
-                <button className="link" onClick={logOut}>
-                  Log Out
-                </button>
+                <Link
+                  to="/login"
+                  type="button"
+                  className="button button-link"
+                  onClick={logOut}
+                >
+                  <i className="icon-log-out" /> Log Out
+                </Link>
               </Dropdown>
             ) : (
-              <div>
-                <Link to="/signin">Sign In</Link>
-                
-                <Link to="/login">
-                  LogIn
+              <Fragment>
+                <Link className="button button-link" to="/signup">
+                  Sign Up
                 </Link>
-              </div>
+
+                <Link className="button button-link" to="/login">
+                  Log In
+                </Link>
+              </Fragment>
             )}
           </section>
         </section>
@@ -47,13 +63,15 @@ const Header = ({ isAuthenticated, session, logOut }) => {
 };
 
 Header.propTypes = {
-  name: PropTypes.string,
-  isAuthenticated: PropTypes.bool
+  isAuthenticated: PropTypes.bool.isRequired,
+  session: PropTypes.shape({
+    name: PropTypes.string,
+    avatar: PropTypes.shape({
+      small: PropTypes.string
+    })
+  }).isRequired
 };
 
-export default connect(({ user }) => ({
-  isAuthenticated: !!user.session,
-  session: user.session
-}), {
+export default connect(null, {
   logOut
 })(Header);

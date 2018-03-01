@@ -24,13 +24,18 @@ const Job = ({
         <img src={employer.logo.small} />
       </figure>
       <section className="job-content">
-        <h3>
+        <h3 className="job-name">
           {name}
           <small>{employer.name}</small>
         </h3>
-        <p>{employer.address}</p>
         <p>
-          {salary_from} - {salary_to} {salary_currency} / {salary_type}{' '}
+          <i className="icon-map-pin" /> {employer.address}
+        </p>
+        <p>
+          <strong>
+            {salary_from} - {salary_to} {salary_currency}
+          </strong>{' '}
+          / {salary_type}{' '}
         </p>
         <p>
           {JSON.parse(description)
@@ -39,10 +44,15 @@ const Job = ({
             .slice(0, 25)
             .join(' ')}...
         </p>
-        <ul>
-          {subskill_list
-            .slice(0, 3)
-            .map(skill => <li key={skill}> {skill} </li>)}
+        <ul className="skills-list">
+          {subskill_list.slice(0, 3).map(skill => (
+            <li key={skill} className="skill">
+              {skill}
+            </li>
+          ))}
+          {subskill_list.length > 3 && (
+            <li className="note">{subskill_list.length - 3} more</li>
+          )}
         </ul>
       </section>
       <section className="job-actions">{renderButton(job)}</section>
