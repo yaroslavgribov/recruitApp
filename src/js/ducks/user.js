@@ -4,12 +4,9 @@ import {
   saveRole,
   saveToken,
   retrieveRole,
-  retrieveToken,
-  deleteRole,
   deleteToken,
   setTokenHeaders
 } from '../utils';
-import { roles } from '../constants/userRoles';
 
 const CREATE_SESSION_REQUEST = 'user/CREATE_SESSION_REQUEST';
 const CREATE_SESSION_SUCCESS = 'user/CREATE_SESSION_SUCCESS';
@@ -104,7 +101,6 @@ export const retrieveSession = (role, token) => dispatch => {
   withRole(role, 'get')
     .then(r => r.data)
     .then(session => {
-
       dispatch(createSessionSuccess({ role, session }));
     })
     .catch(error => {
@@ -119,11 +115,12 @@ export const logOut = () => dispatch => {
 
   withRole(role, 'delete')
     .then(r => r.data)
-    .then(_ => {
+    .then(() => {
       deleteToken();
       dispatch(deleteSessionSuccess());
     })
     .catch(error => {
       const status = error.response.status;
+      dispatch(createSessionFail(generateError('user', status)));
     });
 };

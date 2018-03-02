@@ -1,7 +1,8 @@
-import React, { PureComponent, Fragment } from 'react';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+
 import { Route, NavLink } from 'react-router-dom';
 
-import { connect } from 'react-redux';
 import JobOpenings from '../components/JobOpenings';
 import JobApplications from '../components/JobApplications';
 
@@ -31,13 +32,10 @@ class Jobs extends PureComponent {
   }
 }
 
-export default connect()(Jobs);
-// ({ jobs }) => ({
-//   openings: jobs.openings,
-//   applications: jobs.applications
-// }),
-// {
-//   fetchJobs,
-//   requestApplication,
-//   cancelApplication
-// }
+Jobs.propTypes = {
+  match: PropTypes.shape({
+    url: PropTypes.string
+  })
+};
+
+export default Jobs;

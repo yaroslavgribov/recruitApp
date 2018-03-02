@@ -9,9 +9,7 @@ import Dropdown from './Dropdown';
 
 import { logOut } from '../ducks/user';
 
-const Header = ({ isAuthenticated, session, logOut }) => {
-  const name = session && session.name;
-
+const Header = ({ isAuthenticated, session, role, logOut }) => {
   return (
     <header className="header">
       <section className="inner">
@@ -24,32 +22,27 @@ const Header = ({ isAuthenticated, session, logOut }) => {
               <Dropdown
                 renderControl={() => (
                   <Fragment>
-                    {!session.avatar.small.includes('missing') && (
+                    {role === 'user' && !session.avatar.small.includes('missing') && (
                       <img className="user-image" src={session.avatar.small} />
+                    )}
+                    {role === 'employer' && !session.logo.small.includes('missing') && (
+                      <img className="user-image" src={session.logo.small} />
                     )}
                     <span className="user-name">{session.name}</span>
                     <i className="icon-chevron-down" />
                   </Fragment>
                 )}
               >
-                <Link className="button button-link" to="/user/settings">
-                  <i className="icon-settings" /> Settings
-                </Link>
-                <Link
-                  to="/login"
+                <button
                   type="button"
                   className="button button-link"
                   onClick={logOut}
                 >
                   <i className="icon-log-out" /> Log Out
-                </Link>
+                </button>
               </Dropdown>
             ) : (
               <Fragment>
-                <Link className="button button-link" to="/signup">
-                  Sign Up
-                </Link>
-
                 <Link className="button button-link" to="/login">
                   Log In
                 </Link>
@@ -68,8 +61,11 @@ Header.propTypes = {
     name: PropTypes.string,
     avatar: PropTypes.shape({
       small: PropTypes.string
-    })
-  }).isRequired
+    }),
+  }),
+  role: PropTypes.string,
+
+  logOut: PropTypes.func
 };
 
 export default connect(null, {

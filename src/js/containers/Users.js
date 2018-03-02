@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
 import { connect } from 'react-redux';
 
+import List from '../components/List';
+
 import { fetchUsers } from '../ducks/candidates';
-import { userTypes } from '../constants/userTypes';
 
 class Users extends Component {
   componentDidMount() {
@@ -12,13 +13,25 @@ class Users extends Component {
 
   render() {
     const { userList } = this.props;
+
     return (
-      <div>
-        {userList &&
-          userList.map(user => {
-            return <p>{user.name}</p>;
-          })}
-      </div>
+      <Fragment>
+        {userList ? (
+          <List
+            list={userList}
+            renderImage={user => <img src={user.avatar.medium} />}
+            renderContent={user => (
+              <h3 className="item-name">
+                {user.name}
+                <small>{user.email}</small>
+              </h3>
+            )}
+            renderActions={() => null}
+          />
+        ) : (
+          <p>Loading...</p>
+        )}
+      </Fragment>
     );
   }
 }

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import { NavLink, Route } from 'react-router-dom';
 
 import { connect } from 'react-redux';
@@ -36,6 +38,15 @@ class Employer extends Component {
     );
   }
 }
+
+Employer.propTypes = {
+  match: PropTypes.shape({
+    url: PropTypes.string
+  }),
+  session: PropTypes.shape({
+    name: PropTypes.string
+  })
+};
 
 export default connect(({ user }) => ({
   session: user.session

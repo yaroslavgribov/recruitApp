@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
 import { connect } from 'react-redux';
@@ -8,7 +10,6 @@ import Header from '../components/Header';
 import User from './User';
 import Employer from './Employer';
 
-import SignUp from './SignUp';
 import Login from './Login';
 
 import { retrieveToken, retrieveRole } from '../utils';
@@ -42,13 +43,14 @@ class Application extends Component {
             role={role}
           />
           <Route path="/login" render={props => <Login {...props} />} />
-          <Route path="/signup" component={SignUp} />
 
           <Route
             path="/employer"
             render={props =>
               isAuthenticated ? (
-                <Employer {...props} />
+                role === roles.employer ?
+                <Employer {...props} /> : 
+                <User {...props} />
               ) : (
                 <Redirect
                   to={{
@@ -64,6 +66,8 @@ class Application extends Component {
             path="/user"
             render={props =>
               isAuthenticated ? (
+                role === roles.employer ?
+                <Employer {...props} /> : 
                 <User {...props} />
               ) : (
                 <Redirect
@@ -103,6 +107,14 @@ class Application extends Component {
     );
   }
 }
+
+Application.propTypes = {
+  isAuthenticated: PropTypes.bool,
+  session: PropTypes.object,
+  role: PropTypes.string,
+
+  retrieveSession: PropTypes.func
+};
 
 export default connect(
   ({ user }) => ({

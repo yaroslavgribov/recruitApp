@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import { Route, NavLink } from 'react-router-dom';
 
@@ -10,6 +11,7 @@ import Jobs from './Jobs';
 class User extends Component {
   render() {
     const { match, session } = this.props;
+
     return (
       <div>
         <header className="navigation">
@@ -35,6 +37,15 @@ class User extends Component {
     );
   }
 }
+
+User.propTypes = {
+  session: PropTypes.shape({
+    name: PropTypes.string
+  }),
+  match: PropTypes.shape({
+    url: PropTypes.string
+  })
+};
 
 export default connect(({ user }) => ({
   session: user.session

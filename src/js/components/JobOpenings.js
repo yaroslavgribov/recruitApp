@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 
-import JobListing from './JobList';
-import Job from './Job';
+import JobListing from './JobListing';
 
 import { fetchJobs, requestApplication } from '../ducks/jobs';
 
@@ -14,7 +14,7 @@ class JobOpenings extends Component {
     this.props.fetchJobs(jobTypes.openings);
   }
 
-  renderButton = () => job => {
+  renderButton = job => {
     return (
       <button
         className="button button-action"
@@ -37,9 +37,9 @@ class JobOpenings extends Component {
     return (
       <Fragment>
         {openings ? (
-          <JobListing
-            jobList={availableJobs}
-            renderButton={this.renderButton()}
+          <JobListing 
+            list={availableJobs} 
+            renderButton={this.renderButton} 
           />
         ) : (
           <p>Loading...</p>
@@ -48,6 +48,13 @@ class JobOpenings extends Component {
     );
   }
 }
+
+JobOpenings.propTypes = {
+  openings: PropTypes.array,
+  
+  fetchJobs: PropTypes.func,
+  requestApplication: PropTypes.func
+};
 
 export default connect(
   ({ jobs }) => ({

@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 
 class Dropdown extends PureComponent {
   state = {
@@ -12,7 +13,7 @@ class Dropdown extends PureComponent {
   };
 
   render() {
-    const { label, children, renderControl } = this.props;
+    const { children, renderControl } = this.props;
     const { expanded } = this.state;
 
     return (
@@ -29,5 +30,11 @@ class Dropdown extends PureComponent {
     );
   }
 }
+
+Dropdown.propTypes = {
+  children: PropTypes.node,
+
+  renderControl: PropTypes.func
+};
 
 export default Dropdown;

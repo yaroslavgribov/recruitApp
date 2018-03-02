@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 
+import List from '../components/List';
+
 import { fetchInterviews, rejectInterview } from '../ducks/interviews';
-import { userTypes } from '../constants/userTypes';
 
 class Applicants extends Component {
   componentDidMount() {
@@ -12,29 +14,45 @@ class Applicants extends Component {
 
   render() {
     const { requests } = this.props;
+
     return (
-      <div>
-        {requests &&
-          requests.map(request => {
-            return (
-              <p key={request.id}>
+      <Fragment>
+        {requests ? (
+          <List
+            list={requests}
+            renderImage={request => <img src={request.user.avatar.medium} />}
+            renderContent={request => (
+              <h3 className="item-name">
                 {request.user.name}
-                <button
-                  type="button"
-                  className="button button-action"
-                  onClick={() => {
-                    this.props.rejectInterview(request.id);
-                  }}
-                >
-                  Reject
-                </button>
-              </p>
-            );
-          })}
-      </div>
+                <small>{request.job.name}</small>
+              </h3>
+            )}
+            renderActions={request => (
+              <button
+                type="button"
+                className="button button-action"
+                onClick={() => {
+                  this.props.rejectInterview(request.id);
+                }}
+              >
+                Reject
+              </button>
+            )}
+          />
+        ) : (
+          <p>Loading...</p>
+        )}
+      </Fragment>
     );
   }
 }
+
+Applicants.propTypes = {
+  requests: PropTypes.array,
+
+  fetchInterviews: PropTypes.func,
+  rejectInterview: PropTypes.func
+};
 
 export default connect(
   ({ interviews }) => ({

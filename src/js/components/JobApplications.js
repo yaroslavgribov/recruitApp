@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 
-import JobListing from './JobList';
-import Job from './Job';
+import JobListing from './JobListing';
 
 import { fetchJobs, cancelApplication } from '../ducks/jobs';
 
@@ -14,16 +14,12 @@ class JobApplications extends Component {
     this.props.fetchJobs(jobTypes.applications);
   }
 
-  cancelProposal = job => {
-    this.props.cancelApplication(job.application.id);
-  };
-
-  renderButton = () => job => {
+  renderButton = job => {
     return (
       <button
         className="button button-action"
         onClick={() => {
-          this.cancelProposal(job);
+          this.props.cancelApplication(job.application.id);
         }}
       >
         Cancel
@@ -47,8 +43,8 @@ class JobApplications extends Component {
       <Fragment>
         {applications ? (
           <JobListing
-            jobList={availableJobs}
-            renderButton={this.renderButton()}
+            list={availableJobs}
+            renderButton={this.renderButton}
           />
         ) : (
           <p>Loading...</p>
@@ -57,6 +53,13 @@ class JobApplications extends Component {
     );
   }
 }
+
+JobApplications.propTypes = {
+  applications: PropTypes.array,
+
+  fetchJobs: PropTypes.func,
+  cancelApplication: PropTypes.func
+};
 
 export default connect(
   ({ jobs }) => ({

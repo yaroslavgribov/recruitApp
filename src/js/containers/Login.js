@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 
 import { Redirect } from 'react-router-dom';
 
@@ -6,8 +7,6 @@ import { connect } from 'react-redux';
 
 import { logIn } from '../ducks/user';
 
-import instance from '../axiosInstance';
-import generateError from '../errors';
 import { roles } from '../constants/userRoles';
 
 class Login extends Component {
@@ -31,9 +30,7 @@ class Login extends Component {
     return (
       <Fragment>
         <form className="form" onSubmit={this.logIn}>
-          <header className="form-header">
-            Please log in to proceed
-          </header>
+          <header className="form-header">Please log in to proceed</header>
 
           <section className="form-content">
             <div className="form-field">
@@ -48,6 +45,9 @@ class Login extends Component {
                 <option value={roles.employer}>Employer</option>
               </select>
             </div>
+            <div className="form-field">
+              {error && <p className="form-error">{error}</p>}
+            </div>
           </section>
 
           <section className="form-footer">
@@ -56,16 +56,29 @@ class Login extends Component {
             </button>
           </section>
         </form>
-        {error && <p>{error}</p>}
       </Fragment>
     );
   }
 }
 
+Login.propTypes = {
+  location: PropTypes.shape({
+    state: PropTypes.shape({
+      from: PropTypes.object
+    })
+  }),
+  error: PropTypes.string,
+  isAuthenticated: PropTypes.bool,
+  loggedOut: PropTypes.bool,
+
+  logIn: PropTypes.func
+};
+
 export default connect(
   ({ user }) => ({
     error: user.error,
-    isAuthenticated: !!user.session
+    isAuthenticated: !!user.session,
+    loggedOut: user.loggedOut
   }),
   {
     logIn

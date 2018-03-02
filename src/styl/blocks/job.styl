@@ -1,4 +1,4 @@
-.job
+.item
   display flex
   flex-direction row
   justify-content space-between
@@ -10,8 +10,14 @@
 
   border-top 0
 
-  & + .job 
+  & + .item 
     border-top solid 1px color-text
+
+  &-image 
+    flex 0 0 20rem
+
+    img 
+      width 100%
 
   &-name
     font-size font-size-large
