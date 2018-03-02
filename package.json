@@ -1,7 +1,7 @@
 {
-  "name": "housekeeping",
+  "name": "RecruitApp",
   "version": "1.0.0",
-  "description": ":house:",
+  "description": "👷",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yaroslavgribov/housekeeping.git"
+    "url": "git+https://github.com/yaroslavgribov/recruitApp.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/yaroslavgribov/housekeeping/issues"
+    "url": "https://github.com/yaroslavgribov/recruitApp/issues"
   },
-  "homepage": "https://github.com/yaroslavgribov/housekeeping#readme",
+  "homepage": "https://github.com/yaroslavgribov/recruitApp#readme",
   "dependencies": {
     "autoprefixer": "^7.2.5",
     "axios": "^0.18.0",
@@ -29,8 +29,6 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.8",
-    "dotenv": "^5.0.1",
-    "dotenv-webpack": "^1.5.4",
     "eslint": "^4.15.0",
     "eslint-plugin-react": "^7.5.1",
     "extract-text-webpack-plugin": "^3.0.2",
